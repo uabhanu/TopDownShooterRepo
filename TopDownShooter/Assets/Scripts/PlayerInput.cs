@@ -9,8 +9,6 @@ public class PlayerInput : MonoBehaviour
     private PlayerInputControls _playerInputControls;
     private Vector2 _movementVector;
 
-    public Vector2 MovementVector { get => _movementVector; set => _movementVector = value; }
-
     #endregion
 
     #region Functions
@@ -34,9 +32,8 @@ public class PlayerInput : MonoBehaviour
 
     private void MoveInput(InputAction.CallbackContext callbackContext)
     {
-        MovementVector += callbackContext.ReadValue<Vector2>();
-        InputEventsManager.Invoke(InputEvent.MovementKeysPressed , MovementVector);
-        Debug.Log(MovementVector);
+        _movementVector = callbackContext.ReadValue<Vector2>();
+        InputEventsManager.Invoke(InputEvent.MovementKeysPressed , _movementVector);
     }
 
     #endregion
