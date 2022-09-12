@@ -37,7 +37,7 @@ public partial class @PlayerInputControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Shoot"",
+                    ""name"": ""ShootHelper"",
                     ""type"": ""Button"",
                     ""id"": ""07ed772b-fd3d-4b1e-a377-44953c4de8b8"",
                     ""expectedControlType"": ""Button"",
@@ -173,7 +173,7 @@ public partial class @PlayerInputControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Shoot"",
+                    ""action"": ""ShootHelper"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -196,7 +196,7 @@ public partial class @PlayerInputControls : IInputActionCollection2, IDisposable
         // Land
         m_Land = asset.FindActionMap("Land", throwIfNotFound: true);
         m_Land_Move = m_Land.FindAction("Move", throwIfNotFound: true);
-        m_Land_Shoot = m_Land.FindAction("Shoot", throwIfNotFound: true);
+        m_Land_Shoot = m_Land.FindAction("ShootHelper", throwIfNotFound: true);
         m_Land_Aim = m_Land.FindAction("Aim", throwIfNotFound: true);
     }
 
