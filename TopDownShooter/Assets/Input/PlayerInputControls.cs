@@ -37,7 +37,7 @@ public partial class @PlayerInputControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ShootHelper"",
+                    ""name"": ""Shoot"",
                     ""type"": ""Button"",
                     ""id"": ""07ed772b-fd3d-4b1e-a377-44953c4de8b8"",
                     ""expectedControlType"": ""Button"",
@@ -47,12 +47,12 @@ public partial class @PlayerInputControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Aim"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""0d2b733f-a7a2-4202-bc3d-00db6eaebf82"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -173,7 +173,7 @@ public partial class @PlayerInputControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ShootHelper"",
+                    ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -196,7 +196,7 @@ public partial class @PlayerInputControls : IInputActionCollection2, IDisposable
         // Land
         m_Land = asset.FindActionMap("Land", throwIfNotFound: true);
         m_Land_Move = m_Land.FindAction("Move", throwIfNotFound: true);
-        m_Land_Shoot = m_Land.FindAction("ShootHelper", throwIfNotFound: true);
+        m_Land_Shoot = m_Land.FindAction("Shoot", throwIfNotFound: true);
         m_Land_Aim = m_Land.FindAction("Aim", throwIfNotFound: true);
     }
 

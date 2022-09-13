@@ -7,6 +7,8 @@ public class PlayerInput : MonoBehaviour
     #region Variables
     
     private PlayerInputControls _playerInputControls;
+    private Vector2 _aimVector;
+    private Vector2 _movementVector;
 
     #endregion
 
@@ -17,8 +19,12 @@ public class PlayerInput : MonoBehaviour
         _playerInputControls = new PlayerInputControls();
 
         
-        _playerInputControls.Land.Aim.performed += AimInput;
-        _playerInputControls.Land.Move.performed += MoveInput;
+        _playerInputControls.Land.Aim.performed += context => _aimVector = context.ReadValue<Vector2>();
+        _playerInputControls.Land.Aim.canceled += context => _aimVector = Vector2.zero;
+
+        _playerInputControls.Land.Move.performed += context => _movementVector = context.ReadValue<Vector2>();
+        _playerInputControls.Land.Move.canceled += context => _movementVector = Vector2.zero;
+
         _playerInputControls.Land.Shoot.performed += ShootInput;
     }
 
@@ -32,19 +38,23 @@ public class PlayerInput : MonoBehaviour
         _playerInputControls.Disable();
     }
 
-    private void AimInput(InputAction.CallbackContext callbackContext)
+    private void Update()
     {
-        Vector2 aimVector = callbackContext.ReadValue<Vector2>();
-        InputEventsManager.Invoke(InputEvent.MouseMoved , aimVector);
+        GetAim();
+        GetMovement();
     }
 
-    private void MoveInput(InputAction.CallbackContext callbackContext)
+    private void GetAim()
     {
-        Vector2 movementVector = callbackContext.ReadValue<Vector2>();
-        InputEventsManager.Invoke(InputEvent.MovementKeysPressed , movementVector);
+        InputEventsManager.Invoke(InputEvent.MouseMoved , _aimVector);
+    }
+    
+    private void GetMovement()
+    {
+        InputEventsManager.Invoke(InputEvent.MovementKeysPressed , _movementVector);
     }
 
-    private void ShootInput(InputAction.CallbackContext callbackContext)
+    private void ShootInput(InputAction.CallbackContext noContextHere)
     {
         InputEventsManager.Invoke(InputEvent.MouseLeftClicked);
     }

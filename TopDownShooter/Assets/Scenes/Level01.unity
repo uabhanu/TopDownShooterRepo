@@ -765,6 +765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b300e5734d3434db664d097ef8cae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementDataSo: {fileID: 11400000, guid: ce74412e05a63b84cb2fc783a584ae58, type: 2}
 --- !u!114 &707238628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1061,6 +1062,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1816744648}
+  - component: {fileID: 1816744649}
   m_Layer: 0
   m_Name: GunParent
   m_TagString: Untagged
@@ -1084,6 +1086,20 @@ Transform:
   m_Father: {fileID: 707238622}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1816744649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1816744647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e61b2250213014ab5beabc9b1f81d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 519420031}
+  gunDataSo: {fileID: 11400000, guid: 1c3ad6d510c915b489149a8d54472c95, type: 2}
 --- !u!1 &2029995046
 GameObject:
   m_ObjectHideFlags: 0

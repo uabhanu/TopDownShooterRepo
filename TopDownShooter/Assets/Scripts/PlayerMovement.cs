@@ -6,7 +6,10 @@ public class PlayerMovement : MonoBehaviour
 
     #region Variables
 
+    private float _currentMovementDirection = 0f;
     private Rigidbody2D _playerBody2D;
+
+    [SerializeField] private MovementDataSo movementDataSo;
 
     #endregion
 
@@ -23,9 +26,30 @@ public class PlayerMovement : MonoBehaviour
         UnsubscribeFromEvents();   
     }
 
+    private void CalculateCurrentDirection(Vector2 movementVector)
+    {
+        if(movementVector.y > 0)
+        {
+            _currentMovementDirection = 1f;
+        }
+        
+        else if(movementVector.y < 0)
+        {
+            _currentMovementDirection = -1f;
+        }
+
+        else
+        {
+            _currentMovementDirection = 0f;
+        }
+    }
+
     private void OnMovementKeysPressed(Vector2 movementVector)
     {
-        _playerBody2D.velocity = new Vector2(movementVector.x , movementVector.y);
+        CalculateCurrentDirection(movementVector);
+
+        _playerBody2D.velocity = transform.up * _currentMovementDirection * movementDataSo.MovementSpeed * Time.deltaTime;
+        _playerBody2D.MoveRotation(transform.rotation * Quaternion.Euler(0f , 0f , -movementVector.x * movementDataSo.RotationSpeed * Time.deltaTime));
     }
 
     private void SubscribeToEvents()
