@@ -10,6 +10,8 @@ public class PlayerInput : MonoBehaviour
     private Vector2 _aimVector;
     private Vector2 _movementVector;
 
+    [SerializeField] private Camera mainCamera;
+
     #endregion
 
     #region Functions
@@ -44,9 +46,17 @@ public class PlayerInput : MonoBehaviour
         GetMovement();
     }
 
+    private Vector2 GetMousePosition()
+    {
+        Vector3 mousePosition = _aimVector;
+        mousePosition.z = mainCamera.nearClipPlane;
+        Vector2 mouseWorldPoition = mainCamera.ScreenToWorldPoint(mousePosition);
+        return mouseWorldPoition;
+    }
+
     private void GetAim()
     {
-        InputEventsManager.Invoke(InputEvent.MouseMoved , _aimVector);
+        InputEventsManager.Invoke(InputEvent.MouseMoved , GetMousePosition());
     }
     
     private void GetMovement()

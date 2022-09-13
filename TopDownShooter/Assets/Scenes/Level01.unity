@@ -792,6 +792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04c5d7bfd9f79a349972f933ef7ff82f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 519420031}
 --- !u!1 &1454628869
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,7 +1078,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1816744647}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.598, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1098,7 +1099,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e61b2250213014ab5beabc9b1f81d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCamera: {fileID: 519420031}
   gunDataSo: {fileID: 11400000, guid: 1c3ad6d510c915b489149a8d54472c95, type: 2}
 --- !u!1 &2029995046
 GameObject:
