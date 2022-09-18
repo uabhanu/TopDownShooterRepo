@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShootHelper : MonoBehaviour
+public class ShootUtil : MonoBehaviour
 {
     [SerializeField] private GameObject objectToShoot;
     [SerializeField] private Transform _barrelTransform;

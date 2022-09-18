@@ -5,7 +5,7 @@ public class PlayerShoot : MonoBehaviour
 {
     #region Variables
 
-    private ShootHelper _shootHelper;
+    private ShootUtil _shootUtil;
 
     #endregion
 
@@ -13,7 +13,7 @@ public class PlayerShoot : MonoBehaviour
 
     private void Awake()
     {
-        _shootHelper = GetComponentInParent<ShootHelper>();
+        _shootUtil = GetComponentInParent<ShootUtil>();
         SubscribeToEvents();
     }
 
@@ -24,7 +24,7 @@ public class PlayerShoot : MonoBehaviour
 
     private void OnMouseLeftClicked()
     {
-        _shootHelper.ShootObject();
+        _shootUtil.ShootObject();
     }
 
     private void SubscribeToEvents()
