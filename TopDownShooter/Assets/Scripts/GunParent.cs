@@ -1,7 +1,7 @@
 using Events;
 using UnityEngine;
 
-public class PlayerGun : MonoBehaviour
+public class GunParent : MonoBehaviour
 {
     #region Variables
 
@@ -41,6 +41,7 @@ public class PlayerGun : MonoBehaviour
             //Debug.Log("Set to 45 degrees");
         }
     }
+
 
     private void SubscribeToEvents()
     {

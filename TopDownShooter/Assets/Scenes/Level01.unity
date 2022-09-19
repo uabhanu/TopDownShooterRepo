@@ -629,7 +629,6 @@ GameObject:
   - component: {fileID: 707238629}
   - component: {fileID: 707238627}
   - component: {fileID: 707238625}
-  - component: {fileID: 707238628}
   - component: {fileID: 707238621}
   m_Layer: 0
   m_Name: Player
@@ -766,20 +765,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementDataSo: {fileID: 11400000, guid: ce74412e05a63b84cb2fc783a584ae58, type: 2}
---- !u!114 &707238628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 707238620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d55a7b0fcf10be4ea7869b7a20b23af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectToShoot: {fileID: 8351821289807154561, guid: e243dfa0c19c76441bf719d52807b8d5, type: 3}
-  _barrelTransform: {fileID: 1800137015}
 --- !u!114 &707238629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1020,9 +1005,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1475633845}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eef46b606caf7994c8a7cf133ef502ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e924645729c2244084294af24475804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunDataSo: {fileID: 11400000, guid: 1c3ad6d510c915b489149a8d54472c95, type: 2}
+  barrelTransform: {fileID: 1800137015}
 --- !u!1 &1800137014
 GameObject:
   m_ObjectHideFlags: 0

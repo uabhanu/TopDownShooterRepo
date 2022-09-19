@@ -1,11 +1,12 @@
 using Events;
 using UnityEngine;
 
-public class PlayerShoot : MonoBehaviour
+public class Gun : MonoBehaviour
 {
     #region Variables
 
-    private ShootUtil _shootUtil;
+    [SerializeField] private GunDataSo gunDataSo;
+    [SerializeField] private Transform barrelTransform;
 
     #endregion
 
@@ -13,18 +14,22 @@ public class PlayerShoot : MonoBehaviour
 
     private void Awake()
     {
-        _shootUtil = GetComponentInParent<ShootUtil>();
         SubscribeToEvents();
     }
 
     private void OnDestroy()
     {
-        UnsubscribeFromEvents();   
+        UnsubscribeFromEvents();
+    }
+
+    private void Shoot()
+    {
+        Instantiate(gunDataSo.BulletPrefab , barrelTransform.position , Quaternion.identity);
     }
 
     private void OnMouseLeftClicked()
     {
-        _shootUtil.ShootObject();
+        Shoot();
     }
 
     private void SubscribeToEvents()

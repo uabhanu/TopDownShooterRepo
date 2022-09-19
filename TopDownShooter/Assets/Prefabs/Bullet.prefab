@@ -48,7 +48,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d68e6813552f554cbc56e6791c16d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletDataSo: {fileID: 11400000, guid: d0ec6c082ca6fd54b85365a88fd35b74, type: 2}
   destroyUtil: {fileID: 6697824854755052589}
+  bulletBody2D: {fileID: 7413707358748183853}
 --- !u!58 &442334372089664900
 CircleCollider2D:
   m_ObjectHideFlags: 0

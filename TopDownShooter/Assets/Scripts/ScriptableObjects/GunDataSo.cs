@@ -4,4 +4,5 @@ using UnityEngine;
 public class GunDataSo : ScriptableObject
 {
     public float RotationSpeed;
+    public GameObject BulletPrefab;
 }
