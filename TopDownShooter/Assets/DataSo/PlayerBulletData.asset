@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27fd44e88e32fb24c9d30bae2df6933f, type: 3}
   m_Name: PlayerBulletData
   m_EditorClassIdentifier: 
-  TravelSpeed: 100
+  DistanceTravelledCheckTimer: 1
+  MaxDistanceTravelled: 10
+  TravelSpeed: 400

@@ -24,7 +24,7 @@ public class Gun : MonoBehaviour
 
     private void Shoot()
     {
-        Instantiate(gunDataSo.BulletPrefab , barrelTransform.position , Quaternion.identity);
+        Instantiate(gunDataSo.BulletPrefab , barrelTransform.position , barrelTransform.rotation);
     }
 
     private void OnMouseLeftClicked()
