@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0f127e10574324ebb0df07ba840ca7, type: 3}
   m_Name: PlayerGunData
   m_EditorClassIdentifier: 
-  RotationSpeed: 100
+  RotationSpeed: 150
   BulletPrefab: {fileID: 8351821289807154561, guid: e243dfa0c19c76441bf719d52807b8d5, type: 3}
