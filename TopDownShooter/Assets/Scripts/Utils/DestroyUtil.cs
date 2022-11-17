@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class DestroyUtil : MonoBehaviour
+namespace Utils
 {
-    public void DestroyObject()
+    public class DestroyUtil : MonoBehaviour
     {
-        Destroy(gameObject);
+        public void DestroyObject()
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using Utils;
 
 [RequireComponent(typeof(DestroyUtil))]
 public class Bullet : MonoBehaviour
