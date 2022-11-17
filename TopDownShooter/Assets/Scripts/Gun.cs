@@ -5,6 +5,9 @@ public class Gun : MonoBehaviour
 {
     #region Variables
 
+    private bool _canShoot = true;
+    private float _time;
+
     [SerializeField] private GunDataSo gunDataSo;
     [SerializeField] private Transform barrelTransform;
 
@@ -22,6 +25,19 @@ public class Gun : MonoBehaviour
         UnsubscribeFromEvents();
     }
 
+    private void Update()
+    {
+        if(!_canShoot)
+        {
+            _time -= Time.deltaTime;
+
+            if(_time <= 0)
+            {
+                _canShoot = true;
+            }
+        }
+    }
+
     private void Shoot()
     {
         Instantiate(gunDataSo.BulletPrefab , barrelTransform.position , barrelTransform.rotation);
@@ -29,9 +45,14 @@ public class Gun : MonoBehaviour
 
     private void OnMouseLeftClicked()
     {
-        Shoot();
+        if(_canShoot)
+        {
+            Shoot();
+            _canShoot = false;
+            _time = gunDataSo.ReloadTime;
+        }
     }
-
+    
     private void SubscribeToEvents()
     {
         InputEventsManager.SubscribeToEvent(InputEvent.MouseLeftClicked , OnMouseLeftClicked);
