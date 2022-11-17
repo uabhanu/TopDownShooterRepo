@@ -41,6 +41,7 @@ public class Gun : MonoBehaviour
     private void Shoot()
     {
         Instantiate(gunDataSo.BulletPrefab , barrelTransform.position , barrelTransform.rotation);
+        GameEventsManager.Invoke(GameEvent.Reloading);
     }
 
     private void OnMouseLeftClicked()

@@ -5,7 +5,6 @@ namespace Events
     public class GameEventsManager
     {
         #region Actions
-		
         protected static event Action ReloadingAction;
 
         #endregion
