@@ -1,7 +1,6 @@
-using Events;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class Mover : MonoBehaviour
 {
 
     #region Variables
@@ -18,12 +17,6 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         _playerBody2D = GetComponent<Rigidbody2D>();
-        SubscribeToEvents();
-    }
-
-    private void OnDestroy()
-    {
-        UnsubscribeFromEvents();   
     }
 
     private void CalculateCurrentDirection(Vector2 movementVector)
@@ -44,22 +37,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnMovementKeysPressed(Vector2 movementVector)
+    public void Move(Vector2 movementVector)
     {
         CalculateCurrentDirection(movementVector);
 
         _playerBody2D.velocity = transform.up * _currentMovementDirection * movementDataSo.MovementSpeed * Time.deltaTime;
         _playerBody2D.MoveRotation(transform.rotation * Quaternion.Euler(0f , 0f , -movementVector.x * movementDataSo.RotationSpeed * Time.deltaTime));
-    }
-
-    private void SubscribeToEvents()
-    {
-        InputEventsManager.SubscribeToEvent(InputEvent.MovementKeysPressed , OnMovementKeysPressed);
-    }
-
-    private void UnsubscribeFromEvents()
-    {
-        InputEventsManager.UnsubscribeFromEvent(InputEvent.MovementKeysPressed , OnMovementKeysPressed);
     }
 
     #endregion

@@ -14,17 +14,7 @@ public class Gun : MonoBehaviour
     #endregion
 
     #region Functions
-
-    private void Awake()
-    {
-        SubscribeToEvents();
-    }
-
-    private void OnDestroy()
-    {
-        UnsubscribeFromEvents();
-    }
-
+    
     private void Update()
     {
         if(!_canShoot)
@@ -38,31 +28,16 @@ public class Gun : MonoBehaviour
         }
     }
 
-    private void Shoot()
-    {
-        Instantiate(gunDataSo.BulletPrefab , barrelTransform.position , barrelTransform.rotation);
-        GameEventsManager.Invoke(GameEvent.Reloading);
-    }
-
-    private void OnMouseLeftClicked()
+    public void Shoot()
     {
         if(_canShoot)
         {
-            Shoot();
+            Instantiate(gunDataSo.BulletPrefab , barrelTransform.position , barrelTransform.rotation);
+            GameEventsManager.Invoke(GameEvent.Reloading);
             _canShoot = false;
             _time = gunDataSo.ReloadTime;
         }
     }
     
-    private void SubscribeToEvents()
-    {
-        InputEventsManager.SubscribeToEvent(InputEvent.MouseLeftClicked , OnMouseLeftClicked);
-    }
-
-    private void UnsubscribeFromEvents()
-    {
-        InputEventsManager.UnsubscribeFromEvent(InputEvent.MouseLeftClicked , OnMouseLeftClicked);
-    }
-
     #endregion
 }
