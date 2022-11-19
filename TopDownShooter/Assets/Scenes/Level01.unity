@@ -764,9 +764,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  aim: {fileID: 656380435}
-  gun: {fileID: 984710884}
-  mover: {fileID: 418429044}
+  Aim: {fileID: 656380435}
+  Gun: {fileID: 984710884}
+  Mover: {fileID: 418429044}
 --- !u!114 &418429044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -808,6 +808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3edfbe918f980242970bdf881850e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aiDataSo: {fileID: 11400000, guid: 9bc3d8c89169eab49bace09e883f177d, type: 2}
 --- !u!114 &418429047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -820,6 +821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b28f05c78d1a7c4d8fb0b7d99fe34ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aiDataSo: {fileID: 11400000, guid: 9bc3d8c89169eab49bace09e883f177d, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,7 +951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5e61b2250213014ab5beabc9b1f81d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunDataSo: {fileID: 11400000, guid: 1c3ad6d510c915b489149a8d54472c95, type: 2}
+  gunDataSo: {fileID: 11400000, guid: 29313a78b8b0c5342b32bf2cf4a1b2b2, type: 2}
 --- !u!1 &677572910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,9 +1226,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 1
-  aim: {fileID: 1816744649}
-  gun: {fileID: 1475633848}
-  mover: {fileID: 707238627}
+  Aim: {fileID: 1816744649}
+  Gun: {fileID: 1475633848}
+  Mover: {fileID: 707238627}
 --- !u!1 &984710881
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,7 +1327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e924645729c2244084294af24475804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunDataSo: {fileID: 11400000, guid: 1c3ad6d510c915b489149a8d54472c95, type: 2}
+  gunDataSo: {fileID: 11400000, guid: 29313a78b8b0c5342b32bf2cf4a1b2b2, type: 2}
   barrelTransform: {fileID: 35264708}
 --- !u!1 &1168969046
 GameObject:

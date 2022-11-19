@@ -6,9 +6,10 @@ public class CharacterController : MonoBehaviour
     #region Variables
 
     [SerializeField] private bool isPlayer;
-    [SerializeField] private Aim aim;
-    [SerializeField] private Gun gun;
-    [SerializeField] private Mover mover;
+    
+    public Aim Aim;
+    public Gun Gun;
+    public Mover Mover;
     
     #endregion
     
@@ -30,17 +31,17 @@ public class CharacterController : MonoBehaviour
 
     public void HandleAim(Vector2 aimVector)
     {
-        Debug.Log("Enemy Aiming");
+        Aim.AimGun(aimVector);
     }
 
     public void HandleMovement(Vector2 movementVector)
     {
-        Debug.Log("Enemy Moving");
+        Mover.Move(movementVector);
     }
 
     public void HandleShoot()
     {
-        Debug.Log("Enemy Shooting");
+        Gun.Shoot();
     }
     
     #endregion
@@ -51,21 +52,21 @@ public class CharacterController : MonoBehaviour
     {
         if(!isPlayer) return;
         
-        gun.Shoot();
+        Gun.Shoot();
     }
 
     private void OnMouseMoved(Vector2 aimVector)
     {
         if(!isPlayer) return;
         
-        aim.AimGun(aimVector);
+        Aim.AimGun(aimVector);
     }
 
     private void OnMovementKeysPressed(Vector2 moveVector)
     {
         if(!isPlayer) return;
         
-        mover.Move(moveVector);
+        Mover.Move(moveVector);
     }
 
     private void SubscribeToEvents()

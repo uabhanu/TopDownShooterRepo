@@ -37,12 +37,12 @@ public class Mover : MonoBehaviour
         }
     }
 
-    public void Move(Vector2 movementVector)
+    public void Move(Vector2 movementDirectionBasedOnWASDKeys)
     {
-        CalculateCurrentDirection(movementVector);
+        CalculateCurrentDirection(movementDirectionBasedOnWASDKeys);
 
-        _playerBody2D.velocity = transform.up * _currentMovementDirection * movementDataSo.MovementSpeed * Time.deltaTime;
-        _playerBody2D.MoveRotation(transform.rotation * Quaternion.Euler(0f , 0f , -movementVector.x * movementDataSo.RotationSpeed * Time.deltaTime));
+        _playerBody2D.velocity = transform.up * (_currentMovementDirection * movementDataSo.MovementSpeed * Time.deltaTime);
+        _playerBody2D.MoveRotation(transform.rotation * Quaternion.Euler(0f , 0f , -movementDirectionBasedOnWASDKeys.x * movementDataSo.RotationSpeed * Time.deltaTime));
     }
 
     #endregion

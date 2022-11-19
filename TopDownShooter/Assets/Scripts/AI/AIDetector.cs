@@ -9,10 +9,10 @@ namespace AI
 
         private Collider2D _playerCollider2D;
         
-        [SerializeField] private AIData aiDataSo;
+        [SerializeField] private AIDataSo aiDataSo;
         [SerializeField] private Color gizmosColor;
         [SerializeField] private LayerMask playerLayerMask;
-        
+
         #endregion
 
         #region Functions
@@ -36,6 +36,12 @@ namespace AI
         public bool IsTargetInSight()
         {
             return _playerCollider2D;
+        }
+        
+        public Collider2D PlayerCollider2D
+        {
+            get => _playerCollider2D;
+            set => _playerCollider2D = value;
         }
         
         #endregion
