@@ -51,7 +51,7 @@ public class PlayerInputManager : MonoBehaviour
         Vector3 mousePosition = _aimVector;
         mousePosition.z = mainCamera.nearClipPlane;
         Vector2 mouseWorldPoition = mainCamera.ScreenToWorldPoint(mousePosition);
-        return mouseWorldPoition;
+        return mouseWorldPoition.normalized; //Adding normalized improved the movement but the effect is not quite what I wanted but at this time, good to go
     }
 
     private void GetAim()
