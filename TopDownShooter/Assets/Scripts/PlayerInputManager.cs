@@ -2,14 +2,14 @@ using Events;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerInput : MonoBehaviour
+public class PlayerInputManager : MonoBehaviour
 {
     #region Variables
     
     private PlayerInputControls _playerInputControls;
     private Vector2 _aimVector;
     private Vector2 _movementVector;
-
+    
     [SerializeField] private Camera mainCamera;
 
     #endregion
