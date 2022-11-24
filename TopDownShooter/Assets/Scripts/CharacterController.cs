@@ -26,26 +26,7 @@ public class CharacterController : MonoBehaviour
     }
     
     #endregion
-    
-    #region User Defined Functions
 
-    public void HandleAim(Vector2 aimVector)
-    {
-        Aim.AimGun(aimVector);
-    }
-
-    public void HandleMovement(Vector2 movementVector)
-    {
-        Mover.Move(movementVector);
-    }
-
-    public void HandleShoot()
-    {
-        Gun.Shoot();
-    }
-    
-    #endregion
-    
     #region Event Functions
     
     private void OnMouseLeftClicked()

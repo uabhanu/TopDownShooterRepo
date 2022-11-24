@@ -37,11 +37,10 @@ namespace AI
         {
             return _playerCollider2D;
         }
-        
-        public Collider2D PlayerCollider2D
+
+        public GameObject Target()
         {
-            get => _playerCollider2D;
-            set => _playerCollider2D = value;
+            return _playerCollider2D.gameObject;
         }
         
         #endregion

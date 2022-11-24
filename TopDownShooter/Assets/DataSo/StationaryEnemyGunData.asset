@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e0f127e10574324ebb0df07ba840ca7, type: 3}
   m_Name: StationaryEnemyGunData
   m_EditorClassIdentifier: 
+  GunRotationAngleOffset: 90
   ReloadTime: 1.5
   RotationSpeed: 100
   BulletPrefab: {fileID: 8351821289807154561, guid: 72016841da58df341a9a4f213cf76514, type: 3}

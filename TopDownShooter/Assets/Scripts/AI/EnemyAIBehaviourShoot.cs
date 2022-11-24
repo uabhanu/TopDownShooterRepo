@@ -1,21 +1,16 @@
-using ScriptableObjects;
-using UnityEngine;
-
 namespace AI
 {
     public class EnemyAIBehaviourShoot : EnemyAIBehaviour
     {
-        #region Variables
-        
-        [SerializeField] private AIDataSo aiDataSo;
-
-        #endregion
-        
         #region Functions
         
         public override void PerformAction(AIDetector aiDetector , CharacterController characterController)
         {
-            Debug.Log("Enemy Shooting Behaviour");
+            if(aiDetector.Target() != null && aiDetector.IsTargetInSight())
+            {
+                characterController.Aim.AimGun(aiDetector.Target().transform.position);
+                characterController.Gun.Shoot();
+            }
         }
         
         #endregion
