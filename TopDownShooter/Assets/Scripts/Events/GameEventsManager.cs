@@ -5,7 +5,7 @@ namespace Events
     public class GameEventsManager
     {
         #region Actions
-        protected static event Action ReloadingAction;
+        protected static event Action PlayerGunReloadingAction;
 
         #endregion
 
@@ -15,8 +15,8 @@ namespace Events
         {
             switch(gameEvent)
             {
-                case GameEvent.Reloading:
-                    ReloadingAction += actionFunction;
+                case GameEvent.PlayerGunReloading:
+                    PlayerGunReloadingAction += actionFunction;
                 break;
             }
         }
@@ -25,8 +25,8 @@ namespace Events
         {
             switch(gameEvent)
             {
-                case GameEvent.Reloading:
-                    ReloadingAction -= actionFunction;
+                case GameEvent.PlayerGunReloading:
+                    PlayerGunReloadingAction -= actionFunction;
                 break;
             }
         }
@@ -35,8 +35,8 @@ namespace Events
         {
             switch(gameEvent)
             {
-                case GameEvent.Reloading:
-                    ReloadingAction?.Invoke();
+                case GameEvent.PlayerGunReloading:
+                    PlayerGunReloadingAction?.Invoke();
                 break;
             }
         }

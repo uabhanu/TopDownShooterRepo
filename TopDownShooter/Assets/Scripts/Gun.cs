@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
     private bool _canShoot = true;
     private float _time;
 
+    [SerializeField] private bool belongsToPlayer;
     [SerializeField] private GunDataSo gunDataSo;
     [SerializeField] private Transform barrelTransform;
 
@@ -33,9 +34,13 @@ public class Gun : MonoBehaviour
         if(_canShoot)
         {
             Instantiate(gunDataSo.BulletPrefab , barrelTransform.position , barrelTransform.rotation);
-            GameEventsManager.Invoke(GameEvent.Reloading);
             _canShoot = false;
             _time = gunDataSo.ReloadTime;
+
+            if(belongsToPlayer)
+            {
+                GameEventsManager.Invoke(GameEvent.PlayerGunReloading);
+            }
         }
     }
     

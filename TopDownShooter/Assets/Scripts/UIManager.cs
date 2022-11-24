@@ -42,19 +42,19 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    private void OnReloading()
+    private void OnPlayerGunReloading()
     {
         _playerGunReloading = true;
     }
     
     private void SubscribeToEvents()
     {
-        GameEventsManager.SubscribeToEvent(GameEvent.Reloading , OnReloading);
+        GameEventsManager.SubscribeToEvent(GameEvent.PlayerGunReloading , OnPlayerGunReloading);
     }
 
     private void UnsubscribeFromEvents()
     {
-        GameEventsManager.UnsubscribeFromEvent(GameEvent.Reloading , OnReloading);
+        GameEventsManager.UnsubscribeFromEvent(GameEvent.PlayerGunReloading , OnPlayerGunReloading);
     }
     
     #endregion

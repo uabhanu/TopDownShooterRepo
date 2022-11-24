@@ -808,7 +808,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3edfbe918f980242970bdf881850e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aiDataSo: {fileID: 11400000, guid: 9bc3d8c89169eab49bace09e883f177d, type: 2}
 --- !u!114 &418429047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1327,6 +1326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e924645729c2244084294af24475804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  belongsToPlayer: 0
   gunDataSo: {fileID: 11400000, guid: 29313a78b8b0c5342b32bf2cf4a1b2b2, type: 2}
   barrelTransform: {fileID: 35264708}
 --- !u!1 &1168969046
@@ -1694,6 +1694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e924645729c2244084294af24475804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  belongsToPlayer: 1
   gunDataSo: {fileID: 11400000, guid: 1c3ad6d510c915b489149a8d54472c95, type: 2}
   barrelTransform: {fileID: 1800137015}
 --- !u!1 &1489238673
