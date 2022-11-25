@@ -19,14 +19,13 @@ public class PlayerInputManager : MonoBehaviour
     private void Awake()
     {
         _playerInputControls = new PlayerInputControls();
-
         
         _playerInputControls.Land.Aim.performed += context => _aimVector = context.ReadValue<Vector2>();
         _playerInputControls.Land.Aim.canceled += context => _aimVector = Vector2.zero;
-
+        
         _playerInputControls.Land.Move.performed += context => _movementVector = context.ReadValue<Vector2>();
-        _playerInputControls.Land.Move.canceled += context => _movementVector = Vector2.zero;
-
+        _playerInputControls.Land.Move.canceled += context => _movementVector = Vector2.zero; 
+        
         _playerInputControls.Land.Shoot.performed += ShootInput;
     }
 
@@ -49,9 +48,8 @@ public class PlayerInputManager : MonoBehaviour
     private Vector2 GetMousePosition()
     {
         Vector3 mousePosition = _aimVector;
-        mousePosition.z = mainCamera.nearClipPlane;
         Vector2 mouseWorldPoition = mainCamera.ScreenToWorldPoint(mousePosition);
-        return mouseWorldPoition.normalized; //Adding normalized improved the movement but the effect is not quite what I wanted but at this time, good to go
+        return mouseWorldPoition;
     }
 
     private void GetAim()
