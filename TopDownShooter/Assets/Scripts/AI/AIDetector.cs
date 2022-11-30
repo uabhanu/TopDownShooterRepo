@@ -11,15 +11,16 @@ namespace AI
         
         [SerializeField] private AIDataSo aiDataSo;
         [SerializeField] private Color gizmosColor;
-        [SerializeField] private LayerMask playerLayerMask;
-
+        [SerializeField] private int playerLayerMaskValue;
+        [SerializeField] private LayerMask collisionsEnabledLayerMasks;
+        
         #endregion
 
         #region Functions
         
         private void Update()
         {
-            DetectPlayerCollider2D();
+            PlayerInTheCircle();
         }
 
         private void OnDrawGizmos()
@@ -28,21 +29,34 @@ namespace AI
             Gizmos.DrawWireSphere(transform.position , aiDataSo.DetectorRadius);
         }
 
-        private void DetectPlayerCollider2D()
+        private void PlayerInTheCircle()
         {
-            _playerCollider2D = Physics2D.OverlapCircle(transform.position , aiDataSo.DetectorRadius , playerLayerMask);
+            _playerCollider2D = Physics2D.OverlapCircle(transform.position , aiDataSo.DetectorRadius , collisionsEnabledLayerMasks);
         }
 
-        public bool IsTargetInSight()
+        public bool IsPlayerInSight()
         {
-            return _playerCollider2D;
-        }
+            if(PlayerCollider2D != null)
+            {
+                RaycastHit2D hit2D = Physics2D.Raycast(transform.position , PlayerCollider2D.transform.position - transform.position , aiDataSo.DetectorRadius , collisionsEnabledLayerMasks);
+                Debug.DrawRay(transform.position , PlayerCollider2D.transform.position - transform.position , Color.blue);
 
-        public GameObject Target()
-        {
-            return _playerCollider2D.gameObject;
+                if(hit2D.collider != null && hit2D.collider.gameObject.layer == playerLayerMaskValue)
+                {
+                    Debug.Log("Player Layer : " + PlayerCollider2D.gameObject.layer);
+                    return true;       
+                }
+            }
+            
+            return false;
         }
         
+        public Collider2D PlayerCollider2D
+        {
+            get => _playerCollider2D;
+            set => _playerCollider2D = value;
+        }
+
         #endregion
     }
 }

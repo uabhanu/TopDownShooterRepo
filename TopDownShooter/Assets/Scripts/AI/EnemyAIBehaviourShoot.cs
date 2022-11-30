@@ -6,9 +6,9 @@ namespace AI
         
         public override void PerformAction(AIDetector aiDetector , CharacterController characterController)
         {
-            if(aiDetector.Target() != null && aiDetector.IsTargetInSight())
+            if(aiDetector.IsPlayerInSight())
             {
-                characterController.Aim.AimGun(aiDetector.Target().transform.position);
+                characterController.Aim.AimGun(aiDetector.PlayerCollider2D.transform.position);
                 characterController.Gun.Shoot();
             }
         }

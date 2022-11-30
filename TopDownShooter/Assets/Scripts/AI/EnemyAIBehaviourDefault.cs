@@ -11,7 +11,7 @@ namespace AI
 
         private void Update()
         {
-            if(aiDetector.IsTargetInSight())
+            if(aiDetector.IsPlayerInSight())
             {
                 enemyShootBehaviour.PerformAction(aiDetector , characterController);
             }

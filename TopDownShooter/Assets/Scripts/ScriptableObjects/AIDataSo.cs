@@ -7,6 +7,5 @@ namespace ScriptableObjects
     {
         public float DetectorRadius;
         public float PatrolDelay;
-        public float ShootingRange;
     }
 }

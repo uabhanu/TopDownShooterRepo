@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DetectorRadius: 4
   PatrolDelay: 2.5
-  ShootingRange: 10
+  ShootingRange: 4
