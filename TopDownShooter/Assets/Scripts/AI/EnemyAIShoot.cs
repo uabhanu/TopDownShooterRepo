@@ -1,6 +1,6 @@
 namespace AI
 {
-    public class EnemyAIBehaviourShoot : EnemyAIBehaviour
+    public class EnemyAIShoot : EnemyAI
     {
         #region Functions
         

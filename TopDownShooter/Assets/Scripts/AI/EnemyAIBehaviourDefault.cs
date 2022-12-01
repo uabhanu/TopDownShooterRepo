@@ -6,18 +6,18 @@ namespace AI
     {
         [SerializeField] private AIDetector aiDetector;
         [SerializeField] private CharacterController characterController;
-        [SerializeField] private EnemyAIBehaviour enemyPatrolBehaviour;
-        [SerializeField] private EnemyAIBehaviour enemyShootBehaviour;
+        [SerializeField] private EnemyAI enemyAIPatrol;
+        [SerializeField] private EnemyAI enemyAIShoot;
 
         private void Update()
         {
             if(aiDetector.IsPlayerInSight())
             {
-                enemyShootBehaviour.PerformAction(aiDetector , characterController);
+                enemyAIShoot.PerformAction(aiDetector , characterController);
             }
             else
             {
-                enemyPatrolBehaviour.PerformAction(aiDetector , characterController);
+                enemyAIPatrol.PerformAction(aiDetector , characterController);
             }
         }
     }

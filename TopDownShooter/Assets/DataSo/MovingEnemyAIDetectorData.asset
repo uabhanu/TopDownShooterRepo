@@ -10,8 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ce2ddaa127c6cd4baa261044cf5f7b9, type: 3}
-  m_Name: StationaryAIData
+  m_Name: MovingEnemyAIDetectorData
   m_EditorClassIdentifier: 
-  DetectorRadius: 4
+  DetectorRadius: 2.5
   PatrolDelay: 2.5
-  ShootingRange: 4

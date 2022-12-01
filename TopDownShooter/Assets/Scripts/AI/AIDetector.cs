@@ -43,7 +43,6 @@ namespace AI
 
                 if(hit2D.collider != null && hit2D.collider.gameObject.layer == playerLayerMaskValue)
                 {
-                    Debug.Log("Player Layer : " + PlayerCollider2D.gameObject.layer);
                     return true;       
                 }
             }

@@ -1,10 +1,9 @@
-using Random = UnityEngine.Random;
 using ScriptableObjects;
 using UnityEngine;
 
 namespace AI
 {
-    public class EnemyAIBehaviourPatrolStationaryBehaviour : EnemyAIBehaviour
+    public class EnemyAIPatrolStationary : EnemyAI
     {
         #region Variables
         
