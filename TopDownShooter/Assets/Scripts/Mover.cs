@@ -6,9 +6,11 @@ public class Mover : MonoBehaviour
     #region Variables
 
     private float _currentMovementDirection = 0f;
-    private Rigidbody2D _playerBody2D;
+    private Rigidbody2D _characterBody2D;
 
     [SerializeField] private MovementDataSo movementDataSo;
+
+    public Rigidbody2D CharacterBody2D => _characterBody2D;
 
     #endregion
 
@@ -16,7 +18,7 @@ public class Mover : MonoBehaviour
 
     private void Awake()
     {
-        _playerBody2D = GetComponent<Rigidbody2D>();
+        _characterBody2D = GetComponent<Rigidbody2D>();
     }
 
     private void CalculateCurrentDirection(Vector2 movementVector)
@@ -41,8 +43,8 @@ public class Mover : MonoBehaviour
     {
         CalculateCurrentDirection(movementDirectionBasedOnWASDKeys);
 
-        _playerBody2D.velocity = transform.up * (_currentMovementDirection * movementDataSo.MovementSpeed * Time.deltaTime);
-        _playerBody2D.MoveRotation(transform.rotation * Quaternion.Euler(0f , 0f , -movementDirectionBasedOnWASDKeys.x * movementDataSo.RotationSpeed * Time.deltaTime));
+        _characterBody2D.velocity = transform.up * (_currentMovementDirection * movementDataSo.MovementSpeed * Time.deltaTime);
+        _characterBody2D.MoveRotation(transform.rotation * Quaternion.Euler(0f , 0f , -movementDirectionBasedOnWASDKeys.x * movementDataSo.RotationSpeed * Time.deltaTime));
     }
 
     #endregion

@@ -2385,6 +2385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementDataSo: {fileID: 11400000, guid: b2b3c9669979c7a4f9524ba0705ab36a, type: 2}
+  gunTransform: {fileID: 129330390}
   pointATransform: {fileID: 1549122545}
   pointBTransform: {fileID: 1488578872}
 --- !u!114 &1940768831
