@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Events
 {
@@ -6,10 +7,11 @@ namespace Events
     {
         #region Actions
         protected static event Action PlayerGunReloadingAction;
+        protected static event Action<AudioClip> ShootAction;
 
         #endregion
 
-        #region Functions
+        #region Subscribe Functions
 		
         public static void SubscribeToEvent(GameEvent gameEvent , Action actionFunction)
         {
@@ -20,6 +22,20 @@ namespace Events
                 break;
             }
         }
+        
+        public static void SubscribeToEvent(GameEvent gameEvent , Action<AudioClip> actionFunction)
+        {
+            switch(gameEvent)
+            {
+                case GameEvent.Shoot:
+                    ShootAction += actionFunction;
+                break;
+            }
+        }
+        
+        #endregion
+        
+        #region Unsubscribe Functions
 
         public static void UnsubscribeFromEvent(GameEvent gameEvent , Action actionFunction)
         {
@@ -30,6 +46,20 @@ namespace Events
                 break;
             }
         }
+        
+        public static void UnsubscribeFromEvent(GameEvent gameEvent , Action<AudioClip> actionFunction)
+        {
+            switch(gameEvent)
+            {
+                case GameEvent.Shoot:
+                    ShootAction -= actionFunction;
+                break;
+            }
+        }
+        
+        #endregion
+        
+        #region Invoke Functions
 
         public static void Invoke(GameEvent gameEvent)
         {
@@ -37,6 +67,16 @@ namespace Events
             {
                 case GameEvent.PlayerGunReloading:
                     PlayerGunReloadingAction?.Invoke();
+                break;
+            }
+        }
+        
+        public static void Invoke(GameEvent gameEvent , AudioClip clipToPlay)
+        {
+            switch(gameEvent)
+            {
+                case GameEvent.Shoot:
+                    ShootAction?.Invoke(clipToPlay);
                 break;
             }
         }

@@ -1,4 +1,5 @@
 using Events;
+using ScriptableObjects;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
@@ -10,6 +11,7 @@ public class Gun : MonoBehaviour
 
     [SerializeField] private bool belongsToPlayer;
     [SerializeField] private GunDataSo gunDataSo;
+    [SerializeField] private SoundsDataSo soundsDataSo;
     [SerializeField] private Transform barrelTransform;
 
     #endregion
@@ -33,6 +35,7 @@ public class Gun : MonoBehaviour
     {
         if(_canShoot)
         {
+            GameEventsManager.Invoke(GameEvent.Shoot , soundsDataSo.ShootClip);
             Instantiate(gunDataSo.BulletPrefab , barrelTransform.position , barrelTransform.rotation);
             _canShoot = false;
             _time = gunDataSo.ReloadTime;

@@ -1,4 +1,5 @@
 using Events;
+using ScriptableObjects;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
@@ -6,6 +7,8 @@ public class CharacterController : MonoBehaviour
     #region Variables
 
     [SerializeField] private bool isPlayer;
+    
+    public SoundsDataSo SoundsDataSo;
     
     public Aim Aim;
     public Gun Gun;

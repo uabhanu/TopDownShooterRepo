@@ -3,7 +3,11 @@ guid: 717d3ba3146aa1f459d966021c7e17df
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - SoundsDataSo: {fileID: 11400000, guid: 783d280e1df503a4b93a17952007a2d5, type: 2}
+  - Aim: {instanceID: 0}
+  - Gun: {instanceID: 0}
+  - Mover: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
