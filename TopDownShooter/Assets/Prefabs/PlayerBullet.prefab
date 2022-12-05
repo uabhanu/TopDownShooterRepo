@@ -51,6 +51,7 @@ MonoBehaviour:
   bulletDataSo: {fileID: 11400000, guid: d0ec6c082ca6fd54b85365a88fd35b74, type: 2}
   destroyUtil: {fileID: 6697824854755052589}
   bulletBody2D: {fileID: 7413707358748183853}
+  soundsDataSo: {fileID: 11400000, guid: 783d280e1df503a4b93a17952007a2d5, type: 2}
 --- !u!58 &442334372089664900
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -1,4 +1,6 @@
 using System.Collections;
+using Events;
+using ScriptableObjects;
 using UnityEngine;
 using Utils;
 
@@ -12,6 +14,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private BulletDataSo bulletDataSo;
     [SerializeField] private DestroyUtil destroyUtil;
     [SerializeField] private Rigidbody2D bulletBody2D;
+    [SerializeField] private SoundsDataSo soundsDataSo;
     
     #endregion
 
@@ -32,6 +35,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        GameEventsManager.Invoke(GameEvent.BulletExploded , soundsDataSo.BulletExplosionClip);
         destroyUtil.DestroyObject();
     }
 
@@ -41,6 +45,7 @@ public class Bullet : MonoBehaviour
 
         if(distanceTravelled >= bulletDataSo.MaxDistanceTravelled)
         {
+            GameEventsManager.Invoke(GameEvent.BulletExploded , soundsDataSo.BulletExplosionClip);
             destroyUtil.DestroyObject();
         }
         

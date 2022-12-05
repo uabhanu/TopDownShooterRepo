@@ -7,6 +7,7 @@ namespace Events
     {
         #region Actions
         protected static event Action PlayerGunReloadingAction;
+        protected static event Action<AudioClip> BulletExplodedAction;
         protected static event Action<AudioClip> ShootAction;
 
         #endregion
@@ -27,6 +28,10 @@ namespace Events
         {
             switch(gameEvent)
             {
+                case GameEvent.BulletExploded:
+                    BulletExplodedAction += actionFunction;
+                break;
+                
                 case GameEvent.Shoot:
                     ShootAction += actionFunction;
                 break;
@@ -51,6 +56,10 @@ namespace Events
         {
             switch(gameEvent)
             {
+                case GameEvent.BulletExploded:
+                    BulletExplodedAction -= actionFunction;
+                break;
+                
                 case GameEvent.Shoot:
                     ShootAction -= actionFunction;
                 break;
@@ -75,6 +84,10 @@ namespace Events
         {
             switch(gameEvent)
             {
+                case GameEvent.BulletExploded:
+                    BulletExplodedAction?.Invoke(clipToPlay);
+                break;
+                
                 case GameEvent.Shoot:
                     ShootAction?.Invoke(clipToPlay);
                 break;
