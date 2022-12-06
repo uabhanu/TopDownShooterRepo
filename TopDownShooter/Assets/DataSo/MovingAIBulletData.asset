@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ce2ddaa127c6cd4baa261044cf5f7b9, type: 3}
-  m_Name: MovingEnemyAIDetectorData
+  m_Script: {fileID: 11500000, guid: 27fd44e88e32fb24c9d30bae2df6933f, type: 3}
+  m_Name: MovingAIBulletData
   m_EditorClassIdentifier: 
-  DetectorRadius: 2.5
-  PatrolDelay: 2.5
+  DistanceTravelledCheckTimer: 1
+  MaxDistanceTravelled: 10
+  TravelSpeed: 350
+  Damage: 10

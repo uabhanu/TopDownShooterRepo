@@ -9,6 +9,8 @@ namespace Utils
 
         private void Update()
         {
+            if(characterToFollowTransform == null) return;
+                
             transform.position = mainCamera.WorldToScreenPoint(characterToFollowTransform.position);
         }
     }

@@ -8,6 +8,7 @@ namespace Events
         #region Actions
         protected static event Action PlayerGunReloadingAction;
         protected static event Action<AudioClip> BulletExplodedAction;
+        protected static event Action HitAction;
         protected static event Action<AudioClip> ShootAction;
 
         #endregion
@@ -18,6 +19,10 @@ namespace Events
         {
             switch(gameEvent)
             {
+                case GameEvent.Hit:
+                    HitAction += actionFunction;
+                break;
+                
                 case GameEvent.PlayerGunReloading:
                     PlayerGunReloadingAction += actionFunction;
                 break;
@@ -37,7 +42,7 @@ namespace Events
                 break;
             }
         }
-        
+
         #endregion
         
         #region Unsubscribe Functions
@@ -46,6 +51,10 @@ namespace Events
         {
             switch(gameEvent)
             {
+                case GameEvent.Hit:
+                    HitAction -= actionFunction;
+                break;
+                
                 case GameEvent.PlayerGunReloading:
                     PlayerGunReloadingAction -= actionFunction;
                 break;
@@ -65,7 +74,7 @@ namespace Events
                 break;
             }
         }
-        
+
         #endregion
         
         #region Invoke Functions
@@ -74,6 +83,10 @@ namespace Events
         {
             switch(gameEvent)
             {
+                case GameEvent.Hit:
+                    HitAction?.Invoke();    
+                break;
+                
                 case GameEvent.PlayerGunReloading:
                     PlayerGunReloadingAction?.Invoke();
                 break;

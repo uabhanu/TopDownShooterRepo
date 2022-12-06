@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83c949ef95e5be64aba45fdeb0a16761, type: 3}
-  m_Name: MovingEnemyMovementData
+  m_Script: {fileID: 11500000, guid: 6ce2ddaa127c6cd4baa261044cf5f7b9, type: 3}
+  m_Name: StationaryAIDetectorData
   m_EditorClassIdentifier: 
-  MovementSpeed: 2
-  RotationSpeed: 2
+  DetectorRadius: 4
+  PatrolDelay: 2.5
+  ShootingRange: 4

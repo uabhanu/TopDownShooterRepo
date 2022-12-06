@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ce2ddaa127c6cd4baa261044cf5f7b9, type: 3}
-  m_Name: StationaryEnemyAIDetectorData
+  m_Script: {fileID: 11500000, guid: 4c8f1f4f9483f5040bb6cc2e128bc8e1, type: 3}
+  m_Name: MovingAIHealthData
   m_EditorClassIdentifier: 
-  DetectorRadius: 4
-  PatrolDelay: 2.5
-  ShootingRange: 4
+  Attack: 10
+  MaxHealth: 80

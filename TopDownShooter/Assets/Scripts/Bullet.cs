@@ -15,7 +15,9 @@ public class Bullet : MonoBehaviour
     [SerializeField] private DestroyUtil destroyUtil;
     [SerializeField] private Rigidbody2D bulletBody2D;
     [SerializeField] private SoundsDataSo soundsDataSo;
-    
+
+    public BulletDataSo BulletData => bulletDataSo;
+
     #endregion
 
     #region Functions
@@ -33,9 +35,10 @@ public class Bullet : MonoBehaviour
         DestroyIfMaxDistanceTravelled();
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void OnTriggerEnter2D(Collider2D col2D)
     {
         GameEventsManager.Invoke(GameEvent.BulletExploded , soundsDataSo.BulletExplosionClip);
+        GameEventsManager.Invoke(GameEvent.Hit);
         destroyUtil.DestroyObject();
     }
 

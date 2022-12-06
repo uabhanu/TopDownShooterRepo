@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27fd44e88e32fb24c9d30bae2df6933f, type: 3}
-  m_Name: PlayerBulletData
+  m_Script: {fileID: 11500000, guid: 6ce2ddaa127c6cd4baa261044cf5f7b9, type: 3}
+  m_Name: MovingAIDetectorData
   m_EditorClassIdentifier: 
-  DistanceTravelledCheckTimer: 1
-  MaxDistanceTravelled: 10
-  TravelSpeed: 400
-  Damage: 15
+  DetectorRadius: 2.5
+  PatrolDelay: 2.5

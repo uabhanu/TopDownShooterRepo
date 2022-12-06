@@ -6,4 +6,5 @@ public class BulletDataSo : ScriptableObject
     public float DistanceTravelledCheckTimer;
     public float MaxDistanceTravelled;
     public float TravelSpeed;
+    public int Damage;
 }

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27fd44e88e32fb24c9d30bae2df6933f, type: 3}
-  m_Name: PlayerBulletData
+  m_Name: StationaryAIBulletData
   m_EditorClassIdentifier: 
   DistanceTravelledCheckTimer: 1
   MaxDistanceTravelled: 10
-  TravelSpeed: 400
-  Damage: 15
+  TravelSpeed: 300
+  Damage: 12
