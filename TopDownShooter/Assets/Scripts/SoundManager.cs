@@ -41,13 +41,13 @@ public class SoundManager : MonoBehaviour
     
     private void SubscribeToEvents()
     {
-        GameEventsManager.SubscribeToEvent(GameEvent.BulletExploded , OnBulletExploded);
+        GameEventsManager.SubscribeToEvent(GameEvent.Explosion , OnBulletExploded);
         GameEventsManager.SubscribeToEvent(GameEvent.Shoot , OnShoot);
     }
 
     private void UnsubscribeFromEvents()
     {
-        GameEventsManager.UnsubscribeFromEvent(GameEvent.BulletExploded , OnBulletExploded);
+        GameEventsManager.UnsubscribeFromEvent(GameEvent.Explosion , OnBulletExploded);
         GameEventsManager.UnsubscribeFromEvent(GameEvent.Shoot , OnShoot);
     }
     

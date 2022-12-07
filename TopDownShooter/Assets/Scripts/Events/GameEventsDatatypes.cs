@@ -2,7 +2,8 @@ namespace Events
 {
     public enum GameEvent
     {
-        BulletExploded,
+        EnemyDied,
+        Explosion,
         Hit,
         Shoot,
         PlayerGunReloading

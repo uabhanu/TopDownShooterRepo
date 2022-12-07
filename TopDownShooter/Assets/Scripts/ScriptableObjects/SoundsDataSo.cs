@@ -6,6 +6,7 @@ namespace ScriptableObjects
     public class SoundsDataSo : ScriptableObject
     {
         public AudioClip BulletExplosionClip;
+        public AudioClip CharacterExplosionClip;
         public AudioClip ShootClip;
     }
 }

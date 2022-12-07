@@ -1,4 +1,5 @@
 using Events;
+using ScriptableObjects;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
@@ -6,6 +7,7 @@ public class CharacterController : MonoBehaviour
     #region Variables
 
     [SerializeField] private bool isPlayer;
+    [SerializeField] private SoundsDataSo soundsDataSo;
 
     public Aim Aim;
     public Gun Gun;
@@ -22,6 +24,7 @@ public class CharacterController : MonoBehaviour
 
     private void OnDestroy()
     {
+        GameEventsManager.Invoke(GameEvent.Explosion , soundsDataSo.CharacterExplosionClip);
         UnsubscribeFromEvents();   
     }
 

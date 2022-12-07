@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd6d18161c63d640bfee5db53b7c030, type: 3}
   m_Name: SoundsData
   m_EditorClassIdentifier: 
+  BulletExplosionClip: {fileID: 8300000, guid: 32e7424ee4c6af7488aa730bd26c802f, type: 3}
+  CharacterExplosionClip: {fileID: 8300000, guid: d3d0429970f82014081e596ddfad6402, type: 3}
   ShootClip: {fileID: 8300000, guid: 92d38097458573744a3dfa8d4464f72d, type: 3}

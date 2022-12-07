@@ -6,9 +6,10 @@ namespace Events
     public class GameEventsManager
     {
         #region Actions
-        protected static event Action PlayerGunReloadingAction;
         protected static event Action<AudioClip> BulletExplodedAction;
+        protected static event Action<int> EnemyDiedAction;
         protected static event Action HitAction;
+        protected static event Action PlayerGunReloadingAction;
         protected static event Action<AudioClip> ShootAction;
 
         #endregion
@@ -33,13 +34,23 @@ namespace Events
         {
             switch(gameEvent)
             {
-                case GameEvent.BulletExploded:
+                case GameEvent.Explosion:
                     BulletExplodedAction += actionFunction;
                 break;
                 
                 case GameEvent.Shoot:
                     ShootAction += actionFunction;
                 break;
+            }
+        }
+
+        public static void SubscribeToEvent(GameEvent gameEvent , Action<int> actionFunction)
+        {
+            switch(gameEvent)
+            {
+                case GameEvent.EnemyDied:
+                    EnemyDiedAction += actionFunction;
+                break;   
             }
         }
 
@@ -65,13 +76,23 @@ namespace Events
         {
             switch(gameEvent)
             {
-                case GameEvent.BulletExploded:
+                case GameEvent.Explosion:
                     BulletExplodedAction -= actionFunction;
                 break;
                 
                 case GameEvent.Shoot:
                     ShootAction -= actionFunction;
                 break;
+            }
+        }
+        
+        public static void UnsubscribeFromEvent(GameEvent gameEvent , Action<int> actionFunction)
+        {
+            switch(gameEvent)
+            {
+                case GameEvent.EnemyDied:
+                    EnemyDiedAction -= actionFunction;
+                break;   
             }
         }
 
@@ -97,12 +118,22 @@ namespace Events
         {
             switch(gameEvent)
             {
-                case GameEvent.BulletExploded:
+                case GameEvent.Explosion:
                     BulletExplodedAction?.Invoke(clipToPlay);
                 break;
                 
                 case GameEvent.Shoot:
                     ShootAction?.Invoke(clipToPlay);
+                break;
+            }
+        }
+        
+        public static void Invoke(GameEvent gameEvent , int deathScoreValue)
+        {
+            switch(gameEvent)
+            {
+                case GameEvent.EnemyDied:
+                    EnemyDiedAction?.Invoke(deathScoreValue);    
                 break;
             }
         }

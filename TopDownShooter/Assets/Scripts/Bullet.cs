@@ -37,7 +37,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col2D)
     {
-        GameEventsManager.Invoke(GameEvent.BulletExploded , soundsDataSo.BulletExplosionClip);
+        GameEventsManager.Invoke(GameEvent.Explosion , soundsDataSo.BulletExplosionClip);
         GameEventsManager.Invoke(GameEvent.Hit);
         destroyUtil.DestroyObject();
     }
@@ -48,7 +48,7 @@ public class Bullet : MonoBehaviour
 
         if(distanceTravelled >= bulletDataSo.MaxDistanceTravelled)
         {
-            GameEventsManager.Invoke(GameEvent.BulletExploded , soundsDataSo.BulletExplosionClip);
+            GameEventsManager.Invoke(GameEvent.Explosion , soundsDataSo.BulletExplosionClip);
             destroyUtil.DestroyObject();
         }
         
