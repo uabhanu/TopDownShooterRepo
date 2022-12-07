@@ -2,7 +2,7 @@ using Events;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class PlayerUIManager : MonoBehaviour
 {
     #region Variables
     
