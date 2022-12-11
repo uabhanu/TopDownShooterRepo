@@ -12,10 +12,16 @@ public class InGameUIManager : MonoBehaviour
         pauseMenuPanelObj.SetActive(false);
         Time.timeScale = 1f;
     }
+
+    private void LoadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
     
     public void ExitButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        //TODO Save Data
+        LoadScene();
     }
 
     public void PauseButton()

@@ -3,9 +3,21 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuUiManager : MonoBehaviour
 {
-    public void PlayButton()
+    private void LoadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    
+    public void ContinueButton()
+    {
+        //TODO Load Data
+        LoadScene();    
+    }
+
+    public void NewGameButton()
+    {
+        //TODO Reset Data
+        LoadScene();
     }
 
     public void QuitButton()
