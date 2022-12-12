@@ -1,3 +1,4 @@
+using Events;
 using ScriptableObjects;
 using UnityEngine;
 
@@ -7,7 +8,9 @@ namespace Utils
     public class DamageableUtil : MonoBehaviour
     {
         #region Variables
-        
+
+        [SerializeField] private AIDataSo aiDataSo;
+        [SerializeField] private bool isEnemy;
         [SerializeField] private int _health;
         [SerializeField] private HealthDataSo healthDataSo;
         
@@ -32,6 +35,11 @@ namespace Utils
             
             if(_health <= 0)
             {
+                if(isEnemy)
+                {
+                    GameEventsManager.Invoke(GameEvent.EnemyDied , aiDataSo.DeathScoreValue);
+                }
+                
                 Die();
             }
         }

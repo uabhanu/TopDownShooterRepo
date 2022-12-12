@@ -1,4 +1,3 @@
-using Events;
 using ScriptableObjects;
 using UnityEngine;
 
@@ -17,11 +16,6 @@ namespace AI
         #endregion
 
         #region Functions
-        
-        private void OnDestroy()
-        {
-            GameEventsManager.Invoke(GameEvent.EnemyDied , aiDataSo.DeathScoreValue);
-        }
 
         private void Update()
         {
