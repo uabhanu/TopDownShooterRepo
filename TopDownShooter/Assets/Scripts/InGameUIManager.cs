@@ -1,3 +1,4 @@
+using DataPersistence;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,7 +21,7 @@ public class InGameUIManager : MonoBehaviour
     
     public void ExitButton()
     {
-        //TODO Save Data
+        GameDataManager.Save();
         LoadScene();
     }
 

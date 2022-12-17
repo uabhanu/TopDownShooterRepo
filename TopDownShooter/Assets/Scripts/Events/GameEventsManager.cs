@@ -9,7 +9,9 @@ namespace Events
         protected static event Action<AudioClip> BulletExplodedAction;
         protected static event Action<int> EnemyDiedAction;
         protected static event Action HitAction;
+        protected static event Action LoadAction;
         protected static event Action PlayerGunReloadingAction;
+        protected static event Action SaveAction;
         protected static event Action<AudioClip> ShootAction;
 
         #endregion
@@ -24,8 +26,16 @@ namespace Events
                     HitAction += actionFunction;
                 break;
                 
+                case GameEvent.Load:
+                    LoadAction += actionFunction;
+                break;
+                
                 case GameEvent.PlayerGunReloading:
                     PlayerGunReloadingAction += actionFunction;
+                break;
+                
+                case GameEvent.Save:
+                    SaveAction += actionFunction;
                 break;
             }
         }
@@ -66,8 +76,16 @@ namespace Events
                     HitAction -= actionFunction;
                 break;
                 
+                case GameEvent.Load:
+                    LoadAction -= actionFunction;
+                break;
+                
                 case GameEvent.PlayerGunReloading:
                     PlayerGunReloadingAction -= actionFunction;
+                break;
+                
+                case GameEvent.Save:
+                    SaveAction -= actionFunction;
                 break;
             }
         }
@@ -108,8 +126,16 @@ namespace Events
                     HitAction?.Invoke();    
                 break;
                 
+                case GameEvent.Load:
+                    LoadAction?.Invoke();
+                break;
+                
                 case GameEvent.PlayerGunReloading:
                     PlayerGunReloadingAction?.Invoke();
+                break;
+                
+                case GameEvent.Save:
+                    SaveAction?.Invoke();
                 break;
             }
         }

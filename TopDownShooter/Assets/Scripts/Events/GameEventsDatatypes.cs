@@ -5,6 +5,8 @@ namespace Events
         EnemyDied,
         Explosion,
         Hit,
+        Load,
+        Save,
         Shoot,
         PlayerGunReloading
     }
