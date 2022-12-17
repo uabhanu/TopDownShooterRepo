@@ -1,5 +1,7 @@
 using Events;
+using System;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
 namespace DataPersistence
@@ -47,19 +49,30 @@ namespace DataPersistence
 
         public static void Load()
         {
-            using StreamReader streamReader = new StreamReader(PersistentPath);
-            string json = streamReader.ReadToEnd();
-            GameData = JsonUtility.FromJson<GameData>(json);
+            if(File.Exists(PersistentPath))
+            {
+                try
+                {
+                    BinaryFormatter binaryFormatter = new BinaryFormatter();
+                    FileStream fileStream = File.Open(PersistentPath , FileMode.Open);
+                    GameData = binaryFormatter.Deserialize(fileStream) as GameData;
+                    fileStream.Close();
+                }
+                catch(Exception e)
+                {
+                    Debug.Log("Failed to load file : " + e);
+                }
+            }
+            
             GameEventsManager.Invoke(GameEvent.Load);
         }
 
         public static void Save()
         {
-            string savePath = PersistentPath;
-            string json = JsonUtility.ToJson(GameData);
-            using StreamWriter streamWriter = new StreamWriter(savePath);
-            streamWriter.Write(json);
-            GameEventsManager.Invoke(GameEvent.Save);
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+            FileStream fileStream = File.Create(PersistentPath);
+            binaryFormatter.Serialize(fileStream , GameData);
+            fileStream.Close();
         }
         
         #endregion
