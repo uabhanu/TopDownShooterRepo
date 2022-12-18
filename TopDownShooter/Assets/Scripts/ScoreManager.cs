@@ -3,10 +3,12 @@ using Events;
 using TMPro;
 using UnityEngine;
 
-public class ScoreManager : MonoBehaviour
+public class ScoreManager : MonoBehaviour , IDataPersistence
 {
     #region Variables
 
+    [SerializeField] private int _score;
+    
     [SerializeField] private TMP_Text scoreValueLabel;
 
     #endregion
@@ -15,7 +17,7 @@ public class ScoreManager : MonoBehaviour
     
     private void Awake()
     {
-        scoreValueLabel.text = GameDataManager.GameData.Score.ToString();
+        scoreValueLabel.text = _score.ToString();
         SubscribeToEvents();
     }
 
@@ -26,25 +28,29 @@ public class ScoreManager : MonoBehaviour
 
     private void OnEnemyDied(int incrementValue)
     {
-        GameDataManager.GameData.Score += incrementValue;
-        scoreValueLabel.text = GameDataManager.GameData.Score.ToString();
-    }
-
-    private void OnLoad()
-    {
-        scoreValueLabel.text = GameDataManager.GameData.Score.ToString();
+        _score += incrementValue;
+        scoreValueLabel.text = _score.ToString();
     }
 
     private void SubscribeToEvents()
     {
         GameEventsManager.SubscribeToEvent(GameEvent.EnemyDied , OnEnemyDied);
-        GameEventsManager.SubscribeToEvent(GameEvent.Load , OnLoad);
     }
 
     private void UnsubscribeFromEvents()
     {
         GameEventsManager.UnsubscribeFromEvent(GameEvent.EnemyDied , OnEnemyDied);
-        GameEventsManager.UnsubscribeFromEvent(GameEvent.Load , OnLoad);
+    }
+    
+    public void LoadData(GameData gameData)
+    {
+        _score = gameData.Score;
+        scoreValueLabel.text = _score.ToString();
+    }
+
+    public void SaveData(ref GameData gameData)
+    {
+        gameData.Score = _score;
     }
     
     #endregion

@@ -21,7 +21,7 @@ public class InGameUIManager : MonoBehaviour
     
     public void ExitButton()
     {
-        GameDataManager.Save();
+        DataPersistenceManager.Instance.SaveGame();
         LoadScene();
     }
 
