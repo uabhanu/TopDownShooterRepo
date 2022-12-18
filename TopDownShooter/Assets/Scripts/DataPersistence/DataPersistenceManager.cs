@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using DataPersistence.Data;
 using UnityEngine;
 
 namespace DataPersistence
@@ -8,6 +9,8 @@ namespace DataPersistence
     {
         #region Variables
 
+        [SerializeField] private bool useEncryption;
+        
         [Header("File Storage Config")] 
         [SerializeField] private string fileName;
 
@@ -40,7 +43,7 @@ namespace DataPersistence
         private void Start()
         {
             _dataPersistenceInterfacesList = FindAllDataPersistenceInterfaces();
-            _fileDataHandler = new FileDataHandler(Application.persistentDataPath , fileName);
+            _fileDataHandler = new FileDataHandler(Application.persistentDataPath , fileName , useEncryption);
             LoadGame();
         }
 

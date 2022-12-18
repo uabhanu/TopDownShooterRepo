@@ -1,4 +1,3 @@
-using ScriptableObjects;
 using UnityEngine;
 
 namespace AI
@@ -7,11 +6,11 @@ namespace AI
     {
         #region Variables
         
-        [SerializeField] private AIDataSo aiDataSo;
         [SerializeField] private AIDetector aiDetector;
         [SerializeField] private CharacterController characterController;
         [SerializeField] private EnemyAI enemyAIPatrol;
         [SerializeField] private EnemyAI enemyAIShoot;
+        
 
         #endregion
 

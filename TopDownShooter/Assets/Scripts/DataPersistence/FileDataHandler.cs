@@ -1,26 +1,39 @@
-using DataPersistence;
 using System;
 using System.IO;
+using DataPersistence.Data;
 using UnityEngine;
 
 public class FileDataHandler
 {
     #region Variables
     
-    private bool useEncryption = false;
-    private readonly string encryptionCodeWord = "Word"; 
+    private bool _useEncryption = false;
+    private readonly string _encryptionCodeWord = "Word"; 
     private string _dataDirPath = "";
     private string _dataFileName = "";
 
-    public FileDataHandler(string dataDirPath , string dataFileName)
+    public FileDataHandler(string dataDirPath , string dataFileName , bool useEncryption)
     {
         _dataDirPath = dataDirPath;
         _dataFileName = dataFileName;
+        _useEncryption = useEncryption;
     }
     
     #endregion
 
     #region Functions
+    
+    private string EncryptDecrypt(string data)
+    {
+        string modifiedData = "";
+
+        for(int i = 0; i < data.Length; i++)
+        {
+            modifiedData += (char)(data[i] ^ _encryptionCodeWord[i % _encryptionCodeWord.Length]);
+        }
+
+        return modifiedData;
+    }
     
     public GameData Load()
     {
@@ -39,6 +52,11 @@ public class FileDataHandler
                     {
                         dataToLoad = streamReader.ReadToEnd();
                     }
+                }
+
+                if(_useEncryption)
+                {
+                    dataToLoad = EncryptDecrypt(dataToLoad);
                 }
 
                 gameData = JsonUtility.FromJson<GameData>(dataToLoad);
@@ -62,6 +80,11 @@ public class FileDataHandler
             Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
             string dataToSave = JsonUtility.ToJson(gameData , true);
 
+            if(_useEncryption)
+            {
+                dataToSave = EncryptDecrypt(dataToSave);
+            }
+
             using(FileStream fileStream = new FileStream(fullPath , FileMode.Create))
             {
                 using(StreamWriter streamWriter = new StreamWriter(fileStream))
@@ -75,6 +98,6 @@ public class FileDataHandler
             Debug.LogError("Error occured when trying to save data to file : " + fullPath + "\n" + e);
         }
     }
-    
+
     #endregion
 }

@@ -4,11 +4,13 @@ using UnityEngine;
 
 namespace Utils
 {
-    [RequireComponent(typeof(DestroyUtil))]
+    [RequireComponent(typeof(DestroyUtil) , typeof(DestroyedCheckerUtil))]
     public class DamageableUtil : MonoBehaviour
     {
         #region Variables
 
+        private DestroyedCheckerUtil _destroyedCheckerUtil;
+        
         [SerializeField] private AIDataSo aiDataSo;
         [SerializeField] private bool isEnemy;
         [SerializeField] private int _health;
@@ -20,6 +22,7 @@ namespace Utils
         
         private void Awake()
         {
+            _destroyedCheckerUtil = GetComponent<DestroyedCheckerUtil>();
             _health = healthDataSo.MaxHealth;
         }
 
@@ -40,6 +43,8 @@ namespace Utils
                     GameEventsManager.Invoke(GameEvent.EnemyDied , aiDataSo.DeathScoreValue);
                 }
                 
+                _destroyedCheckerUtil.IsDead = true;
+                Debug.Log("Death Checker Death Status : " + _destroyedCheckerUtil.IsDead);
                 Die();
             }
         }

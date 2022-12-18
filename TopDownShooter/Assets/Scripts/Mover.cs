@@ -10,8 +10,6 @@ public class Mover : MonoBehaviour
 
     [SerializeField] private MovementDataSo movementDataSo;
 
-    public Rigidbody2D CharacterBody2D => _characterBody2D;
-
     #endregion
 
     #region Functions
