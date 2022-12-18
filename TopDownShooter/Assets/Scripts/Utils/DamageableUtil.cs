@@ -44,7 +44,6 @@ namespace Utils
                 }
                 
                 _destroyedCheckerUtil.IsDead = true;
-                Debug.Log("Death Checker Death Status : " + _destroyedCheckerUtil.IsDead);
                 Die();
             }
         }
