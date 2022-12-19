@@ -1,6 +1,7 @@
 using Events;
 using ScriptableObjects;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Utils
 {
@@ -10,12 +11,13 @@ namespace Utils
         #region Variables
 
         private DestroyedCheckerUtil _destroyedCheckerUtil;
+        private int _health;
         
         [SerializeField] private AIDataSo aiDataSo;
         [SerializeField] private bool isEnemy;
-        [SerializeField] private int _health;
         [SerializeField] private HealthDataSo healthDataSo;
-        
+        [SerializeField] private Slider healthBarSlider;
+
         #endregion
 
         #region MonoBehaviour Functions
@@ -24,16 +26,18 @@ namespace Utils
         {
             _destroyedCheckerUtil = GetComponent<DestroyedCheckerUtil>();
             _health = healthDataSo.MaxHealth;
+            healthBarSlider.value = _health / healthDataSo.MaxHealth;
         }
 
         private void OnTriggerEnter2D(Collider2D col2D)
         {
             GameObject collidedObj = col2D.gameObject;
             BulletDataSo collidedObjBulletData = collidedObj.GetComponent<Bullet>().BulletData;
-            
+
             if(_health > 0)
             {
                 _health -= collidedObjBulletData.Damage;
+                healthBarSlider.value = _health / healthDataSo.MaxHealth;
             }
             
             if(_health <= 0)
