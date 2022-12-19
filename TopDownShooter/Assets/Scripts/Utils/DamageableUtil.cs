@@ -37,7 +37,7 @@ namespace Utils
             if(_health > 0)
             {
                 _health -= collidedObjBulletData.Damage;
-                healthBarSlider.value = _health / healthDataSo.MaxHealth;
+                healthBarSlider.value = (float)_health / healthDataSo.MaxHealth;
             }
             
             if(_health <= 0)
