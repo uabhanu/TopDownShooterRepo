@@ -1181,10 +1181,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ceffed46f6a4e74b8facb8a7dfd3abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 0
   aiDataSo: {fileID: 11400000, guid: 9bc3d8c89169eab49bace09e883f177d, type: 2}
   isEnemy: 1
-  healthDataSo: {fileID: 11400000, guid: b60dec8206e740e46a557976326cfbb0, type: 2}
+  maxHealth: 100
   healthBarSlider: {fileID: 1760472795}
+  objType: Stationary Enemy
 --- !u!114 &418429050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1541,10 +1543,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ceffed46f6a4e74b8facb8a7dfd3abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 0
   aiDataSo: {fileID: 0}
   isEnemy: 0
-  healthDataSo: {fileID: 11400000, guid: 2d05f2171001ead4d83317f91f6c5e38, type: 2}
+  maxHealth: 75
   healthBarSlider: {fileID: 1520046876}
+  objType: Full Obstacle
 --- !u!114 &677572916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1857,10 +1861,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ceffed46f6a4e74b8facb8a7dfd3abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 0
   aiDataSo: {fileID: 0}
   isEnemy: 0
-  healthDataSo: {fileID: 11400000, guid: 4278962db3d28e540a2890dcb310209d, type: 2}
+  maxHealth: 50
   healthBarSlider: {fileID: 2051098296}
+  objType: Player
 --- !u!114 &707238633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4372,7 +4378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d969bb2a8c952854d9454ae74893f998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useEncryption: 1
+  useEncryption: 0
   fileName: topdownshooter.game
 --- !u!1 &1676244083
 GameObject:
@@ -6372,10 +6378,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ceffed46f6a4e74b8facb8a7dfd3abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _health: 0
   aiDataSo: {fileID: 11400000, guid: a2a39865695a1b2429635565ddafcf5e, type: 2}
   isEnemy: 1
-  healthDataSo: {fileID: 11400000, guid: f753b2402c3f7cd49a19b6d8df75df83, type: 2}
+  maxHealth: 80
   healthBarSlider: {fileID: 1792982249}
+  objType: Moving Enemy
 --- !u!1 &2064824460
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,5 @@
+using DataPersistence;
+using DataPersistence.Data;
 using Events;
 using ScriptableObjects;
 using UnityEngine;
@@ -6,17 +8,18 @@ using UnityEngine.UI;
 namespace Utils
 {
     [RequireComponent(typeof(DestroyUtil) , typeof(DestroyedCheckerUtil))]
-    public class DamageableUtil : MonoBehaviour
+    public class DamageableUtil : MonoBehaviour , IDataPersistence
     {
         #region Variables
 
         private DestroyedCheckerUtil _destroyedCheckerUtil;
-        private int _health;
+        [SerializeField] private int _health;
         
         [SerializeField] private AIDataSo aiDataSo;
         [SerializeField] private bool isEnemy;
-        [SerializeField] private HealthDataSo healthDataSo;
+        [SerializeField] private int maxHealth;
         [SerializeField] private Slider healthBarSlider;
+        [SerializeField] private string objType;
 
         #endregion
 
@@ -25,8 +28,8 @@ namespace Utils
         private void Awake()
         {
             _destroyedCheckerUtil = GetComponent<DestroyedCheckerUtil>();
-            _health = healthDataSo.MaxHealth;
-            healthBarSlider.value = _health / healthDataSo.MaxHealth;
+            _health = maxHealth;
+            healthBarSlider.value = (float)_health / maxHealth;
         }
 
         private void OnTriggerEnter2D(Collider2D col2D)
@@ -37,7 +40,7 @@ namespace Utils
             if(_health > 0)
             {
                 _health -= collidedObjBulletData.Damage;
-                healthBarSlider.value = (float)_health / healthDataSo.MaxHealth;
+                healthBarSlider.value = (float)_health / maxHealth;
             }
             
             if(_health <= 0)
@@ -61,6 +64,54 @@ namespace Utils
             GetComponent<DestroyUtil>().DestroyObject();
         }
         
+        public void LoadData(GameData gameData)
+        {
+            switch(objType)
+            {
+                case "Full Obstacle":
+                    _health = gameData.FullObstacleHealth;
+                    healthBarSlider.value = (float)_health / maxHealth;
+                break;
+                
+                case "Moving Enemy":
+                    _health = gameData.MovingEnemyHealth;
+                    healthBarSlider.value = (float)_health / maxHealth;
+                break;
+                
+                case "Player":
+                    _health = gameData.PlayerHealth;
+                    healthBarSlider.value = (float)_health / maxHealth;
+                break;
+                
+                case "Stationary Enemy":
+                    _health = gameData.StationaryEnemyHealth;
+                    healthBarSlider.value = (float)_health / maxHealth;
+                break;
+            }
+        }
+
+        public void SaveData(ref GameData gameData)
+        {
+            switch(objType)
+            {
+                case "Full Obstacle":
+                    gameData.FullObstacleHealth = _health;
+                break;
+                
+                case "Moving Enemy":
+                    gameData.MovingEnemyHealth = _health;
+                break;
+                
+                case "Player":
+                    gameData.PlayerHealth = _health;
+                break;
+                
+                case "Stationary Enemy":
+                    gameData.StationaryEnemyHealth = _health;
+                break;
+            }
+        }
+
         #endregion
     }
 }
