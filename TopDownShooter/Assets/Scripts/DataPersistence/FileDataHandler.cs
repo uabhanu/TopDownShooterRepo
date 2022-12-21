@@ -7,7 +7,7 @@ public class FileDataHandler
 {
     #region Variables
     
-    private bool _useEncryption = false;
+    private bool _useEncryption;
     private readonly string _encryptionCodeWord = "Word"; 
     private string _dataDirPath = "";
     private string _dataFileName = "";

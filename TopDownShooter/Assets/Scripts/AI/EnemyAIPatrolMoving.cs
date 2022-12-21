@@ -57,7 +57,7 @@ namespace AI
             Patrol();
             RotateTowardsDestination();
         }
-        
+
         #endregion
     }
 }

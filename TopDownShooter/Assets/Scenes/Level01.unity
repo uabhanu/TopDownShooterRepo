@@ -1655,7 +1655,7 @@ GameObject:
   - component: {fileID: 707238631}
   - component: {fileID: 707238634}
   - component: {fileID: 707238627}
-  - component: {fileID: 707238633}
+  - component: {fileID: 707238635}
   - component: {fileID: 707238625}
   - component: {fileID: 707238621}
   m_Layer: 6
@@ -1867,18 +1867,6 @@ MonoBehaviour:
   maxHealth: 50
   healthBarSlider: {fileID: 2051098296}
   objType: Player
---- !u!114 &707238633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 707238620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7301cf92a5ce7f4c961351a7ff1ae8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &707238634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1893,6 +1881,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDead: 0
   uniqueID: 661f7cae-6630-41ef-a0ed-1a35b633d3af
+--- !u!114 &707238635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707238620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7301cf92a5ce7f4c961351a7ff1ae8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &734522355
 GameObject:
   m_ObjectHideFlags: 0
@@ -3051,7 +3051,7 @@ Transform:
   - {fileID: 2057559545}
   - {fileID: 795441221}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1307331093
 GameObject:
@@ -4334,52 +4334,6 @@ Transform:
   m_Father: {fileID: 795441221}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1670066876
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1670066877}
-  - component: {fileID: 1670066878}
-  m_Layer: 0
-  m_Name: DataPersistenceManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1670066877
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1670066876}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1670066878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1670066876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d969bb2a8c952854d9454ae74893f998, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  useEncryption: 0
-  fileName: topdownshooter.game
 --- !u!1 &1676244083
 GameObject:
   m_ObjectHideFlags: 0

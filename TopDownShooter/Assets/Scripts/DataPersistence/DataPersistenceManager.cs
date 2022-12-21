@@ -2,25 +2,28 @@ using System.Collections.Generic;
 using System.Linq;
 using DataPersistence.Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace DataPersistence
 {
     public class DataPersistenceManager : MonoBehaviour
     {
         #region Variables
-
-        [SerializeField] private bool useEncryption;
         
-        [Header("File Storage Config")] 
-        [SerializeField] private string fileName;
-
         private FileDataHandler _fileDataHandler;
+        
         private GameData _gameData;
 
         private List<IDataPersistence> _dataPersistenceInterfacesList;
+
+        [Header("Encrypt or not?")] [SerializeField] private bool useEncryption;
+        
+        [Header("For Debugging")] [SerializeField] private bool initializeDataIfNull;
+
+        [Header("File Storage Config")] [SerializeField] private string fileName;
         public static DataPersistenceManager Instance { get; private set; }
 
-        public string FileName => fileName;
+        public GameData GameData => _gameData;
 
         #endregion
 
@@ -28,23 +31,46 @@ namespace DataPersistence
 
         private void Awake()
         {
-            if(Instance == null)
+            if(Instance != null)
             {
-                Instance = this;
-                DontDestroyOnLoad(this);   
-            }
-            
-            else if(Instance != this)
-            {
+                Debug.LogError("Found more than one Data Persistence Manager in the scene so destroying the newest one");
                 Destroy(gameObject);
+                return;
             }
+
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            _fileDataHandler = new FileDataHandler(Application.persistentDataPath , fileName , useEncryption);
         }
 
-        private void Start()
+        private void OnEnable()
+        {
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            SceneManager.sceneUnloaded += OnSceneUnloaded;
+        }
+
+        private void OnDisable()
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            SceneManager.sceneUnloaded -= OnSceneUnloaded;
+        }
+
+        //This is called after OnEnable but before Start as per the Unity Docs
+        private void OnSceneLoaded(Scene scene , LoadSceneMode mode)
         {
             _dataPersistenceInterfacesList = FindAllDataPersistenceInterfaces();
-            _fileDataHandler = new FileDataHandler(Application.persistentDataPath , fileName , useEncryption);
             LoadGame();
+        }
+
+        private void OnSceneUnloaded(Scene scene)
+        {
+            SaveGame();
+        }
+
+        //Just in case if user quits accidentally
+        private void OnApplicationQuit()
+        {
+            SaveGame();
         }
 
         private List<IDataPersistence> FindAllDataPersistenceInterfaces()
@@ -56,10 +82,16 @@ namespace DataPersistence
         public void LoadGame()
         {
             _gameData = _fileDataHandler.Load();
+
+            if(_gameData == null && initializeDataIfNull)
+            {
+                NewGame();
+            }
             
             if(_gameData == null)
             {
-                NewGame();
+                Debug.LogWarning("No data was found. A new game needs to be started before data can be loaded");
+                return;
             }
 
             foreach(IDataPersistence dataPersistenceInterface in _dataPersistenceInterfacesList)
@@ -75,6 +107,12 @@ namespace DataPersistence
 
         public void SaveGame()
         {
+            if(_gameData == null)
+            {
+                Debug.LogWarning("No data was found. A new game needs to be started before data can be saved");
+                return;
+            }
+            
             foreach(IDataPersistence dataPersistenceInterface in _dataPersistenceInterfacesList)
             {
                 dataPersistenceInterface.SaveData(ref _gameData);
@@ -82,7 +120,7 @@ namespace DataPersistence
 
             _fileDataHandler.Save(_gameData);
         }
-        
+
         #endregion
     }
 }
