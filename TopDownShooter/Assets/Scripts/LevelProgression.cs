@@ -2,7 +2,7 @@ using Events;
 using UnityEngine;
 using Utils;
 
-[RequireComponent(typeof(ObjectSpawnerUtil))]
+[RequireComponent(typeof(ObjectSpawnerUtil) , typeof(SpawnCheckerUtil))]
 public class LevelProgression : MonoBehaviour
 {
     [SerializeField] private GameObject[] _enemyObjsInTheScene;
@@ -35,6 +35,7 @@ public class LevelProgression : MonoBehaviour
         if(_totalEnemiesCount == 0)
         {
             GetComponent<ObjectSpawnerUtil>().SpawnObject();
+            GetComponent<SpawnCheckerUtil>().IsInstantiated = true;
         }
     }
     

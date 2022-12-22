@@ -7,6 +7,7 @@ namespace DataPersistence.Data
     public class GameData
     {
         public SerializableDictionary<string , bool> ObjectsDestroyed;
+        public SerializableDictionary<string , bool> ObjectsInstantiated;
         public int FullObstacleHealth;
         public int MovingEnemyHealth;
         public int PlayerHealth;
@@ -21,6 +22,7 @@ namespace DataPersistence.Data
             FullObstacleHealth = 75;
             MovingEnemyHealth = 80;
             ObjectsDestroyed = new SerializableDictionary<string , bool>();
+            ObjectsInstantiated = new SerializableDictionary<string , bool>();
             PlayerHealth = 50;
             PlayerPosition = new Vector2(0f , -4.47f);
             PlayerRotation = new Quaternion(0f , 0f , 0f , 0f);

@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace Utils
 {
-    public class DestroyedCheckerUtil : MonoBehaviour , IDataPersistence
+    public class SpawnCheckerUtil : MonoBehaviour , IDataPersistence
     {
-        public bool IsDead;
-        
+        public bool IsInstantiated;
+    
         [SerializeField] private string uniqueID;
 
         [ContextMenu("Generate GUID for ID")]
@@ -18,22 +18,22 @@ namespace Utils
 
         public void LoadData(GameData gameData)
         {
-            gameData.ObjectsDestroyed.TryGetValue(uniqueID , out IsDead);
+            gameData.ObjectsInstantiated.TryGetValue(uniqueID , out IsInstantiated);
 
-            if(IsDead)
+            if(IsInstantiated)
             {
-                gameObject.SetActive(false);
+                GetComponent<ObjectSpawnerUtil>().SpawnObject();
             }
         }
 
         public void SaveData(ref GameData gameData)
         {
-            if(gameData.ObjectsDestroyed.ContainsKey(uniqueID))
+            if(gameData.ObjectsInstantiated.ContainsKey(uniqueID))
             {
-                gameData.ObjectsDestroyed.Remove(uniqueID);
+                gameData.ObjectsInstantiated.Remove(uniqueID);
             }
             
-            gameData.ObjectsDestroyed.Add(uniqueID , IsDead);
+            gameData.ObjectsInstantiated.Add(uniqueID , IsInstantiated);
         }
     }
 }

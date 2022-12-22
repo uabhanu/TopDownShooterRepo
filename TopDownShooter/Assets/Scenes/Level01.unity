@@ -1181,7 +1181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ceffed46f6a4e74b8facb8a7dfd3abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 0
   aiDataSo: {fileID: 11400000, guid: 9bc3d8c89169eab49bace09e883f177d, type: 2}
   isEnemy: 1
   maxHealth: 100
@@ -1543,7 +1542,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ceffed46f6a4e74b8facb8a7dfd3abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 0
   aiDataSo: {fileID: 0}
   isEnemy: 0
   maxHealth: 75
@@ -1861,7 +1859,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ceffed46f6a4e74b8facb8a7dfd3abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 0
   aiDataSo: {fileID: 0}
   isEnemy: 0
   maxHealth: 50
@@ -1969,7 +1966,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 879140564}
-  - component: {fileID: 879140563}
+  - component: {fileID: 879140567}
+  - component: {fileID: 879140566}
   - component: {fileID: 879140565}
   m_Layer: 0
   m_Name: LevelProgression
@@ -1978,20 +1976,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &879140563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 879140562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1a0b564c591cc6448649a1c94237999, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _enemyObjsInTheScene: []
-  _totalEnemiesCount: 0
 --- !u!4 &879140564
 Transform:
   m_ObjectHideFlags: 0
@@ -2016,10 +2000,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 879140562}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7014e23faeb753a4b84c9cab7b21637a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsInstantiated: 0
+  uniqueID: df72bed0-17d7-4c13-8e52-465bd4773e50
+--- !u!114 &879140566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879140562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac4bf4f109c09f14e8345ffb4664ede4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   objPrefabToSpawn: {fileID: 8406914345711570295, guid: dfffaf3cc25e405479506094fc603505, type: 3}
+--- !u!114 &879140567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879140562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a0b564c591cc6448649a1c94237999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyObjsInTheScene: []
+  _totalEnemiesCount: 0
 --- !u!1 &891479884
 GameObject:
   m_ObjectHideFlags: 0
@@ -6392,7 +6404,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ceffed46f6a4e74b8facb8a7dfd3abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 0
   aiDataSo: {fileID: 11400000, guid: a2a39865695a1b2429635565ddafcf5e, type: 2}
   isEnemy: 1
   maxHealth: 80

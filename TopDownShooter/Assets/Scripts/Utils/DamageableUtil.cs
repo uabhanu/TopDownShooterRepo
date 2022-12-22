@@ -13,7 +13,7 @@ namespace Utils
         #region Variables
 
         private DestroyedCheckerUtil _destroyedCheckerUtil;
-        [SerializeField] private int _health;
+        private int _health;
         
         [SerializeField] private AIDataSo aiDataSo;
         [SerializeField] private bool isEnemy;
