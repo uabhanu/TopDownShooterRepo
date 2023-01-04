@@ -28,7 +28,11 @@ public class MainMenuUIManager : MonoBehaviour
 
     public void NewGameButton()
     {
-        DataPersistenceManager.Instance.NewGame();
+        if(DataPersistenceManager.Instance != null)
+        {
+            DataPersistenceManager.Instance.NewGame();    
+        }
+        
         LoadScene();
     }
 
