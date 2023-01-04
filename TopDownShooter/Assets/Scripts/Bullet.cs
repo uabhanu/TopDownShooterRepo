@@ -4,7 +4,7 @@ using ScriptableObjects;
 using UnityEngine;
 using Utils;
 
-[RequireComponent(typeof(DestroyUtil))]
+[RequireComponent(typeof(DestroyUtil) , typeof(ObjectSpawnerUtil))]
 public class Bullet : MonoBehaviour
 {
     #region Variables
@@ -39,6 +39,7 @@ public class Bullet : MonoBehaviour
     {
         GameEventsManager.Invoke(GameEvent.Explosion , soundsDataSo.BulletExplosionClip);
         GameEventsManager.Invoke(GameEvent.Hit);
+        GetComponent<ObjectSpawnerUtil>().SpawnObject();
         destroyUtil.DestroyObject();
     }
 

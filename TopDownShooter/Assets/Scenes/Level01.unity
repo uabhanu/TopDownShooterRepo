@@ -931,6 +931,7 @@ GameObject:
   - component: {fileID: 418429049}
   - component: {fileID: 418429048}
   - component: {fileID: 418429050}
+  - component: {fileID: 418429051}
   - component: {fileID: 418429045}
   - component: {fileID: 418429047}
   - component: {fileID: 418429046}
@@ -1200,6 +1201,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDead: 0
   uniqueID: 8adc9c5f-a414-4bb7-b269-3eacd9dc95e9
+--- !u!114 &418429051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418429038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4bf4f109c09f14e8345ffb4664ede4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objPrefabToSpawn: {fileID: 3752212089560521390, guid: 21d433bb211b58940abcc80fe5c19205, type: 3}
 --- !u!1 &518794553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,6 +1411,7 @@ GameObject:
   - component: {fileID: 677572915}
   - component: {fileID: 677572914}
   - component: {fileID: 677572916}
+  - component: {fileID: 677572917}
   - component: {fileID: 677572911}
   m_Layer: 7
   m_Name: FullObstacle
@@ -1561,6 +1576,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsDead: 0
   uniqueID: 5daf7043-29fb-47e8-931d-e3b141024c21
+--- !u!114 &677572917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677572910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4bf4f109c09f14e8345ffb4664ede4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objPrefabToSpawn: {fileID: 3752212089560521390, guid: 21d433bb211b58940abcc80fe5c19205, type: 3}
 --- !u!1 &694741420
 GameObject:
   m_ObjectHideFlags: 0
@@ -1652,6 +1680,7 @@ GameObject:
   - component: {fileID: 707238632}
   - component: {fileID: 707238631}
   - component: {fileID: 707238634}
+  - component: {fileID: 707238636}
   - component: {fileID: 707238627}
   - component: {fileID: 707238635}
   - component: {fileID: 707238625}
@@ -1890,6 +1919,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7301cf92a5ce7f4c961351a7ff1ae8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &707238636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707238620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4bf4f109c09f14e8345ffb4664ede4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objPrefabToSpawn: {fileID: 3752212089560521390, guid: 21d433bb211b58940abcc80fe5c19205, type: 3}
 --- !u!1 &734522355
 GameObject:
   m_ObjectHideFlags: 0
@@ -6141,6 +6183,7 @@ GameObject:
   - component: {fileID: 2057559550}
   - component: {fileID: 2057559549}
   - component: {fileID: 2057559548}
+  - component: {fileID: 2057559557}
   - component: {fileID: 2057559547}
   - component: {fileID: 2057559546}
   m_Layer: 9
@@ -6409,6 +6452,19 @@ MonoBehaviour:
   maxHealth: 80
   healthBarSlider: {fileID: 1792982249}
   objType: Moving Enemy
+--- !u!114 &2057559557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057559544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4bf4f109c09f14e8345ffb4664ede4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objPrefabToSpawn: {fileID: 3752212089560521390, guid: 21d433bb211b58940abcc80fe5c19205, type: 3}
 --- !u!1 &2064824460
 GameObject:
   m_ObjectHideFlags: 0

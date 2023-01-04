@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace Utils
 {
-    [RequireComponent(typeof(DestroyUtil) , typeof(DestroyedCheckerUtil))]
+    [RequireComponent(typeof(DestroyUtil) , typeof(DestroyedCheckerUtil) , typeof(ObjectSpawnerUtil))]
     public class DamageableUtil : MonoBehaviour , IDataPersistence
     {
         #region Variables
@@ -62,6 +62,7 @@ namespace Utils
         private void Die()
         {
             GetComponent<DestroyUtil>().DestroyObject();
+            GetComponent<ObjectSpawnerUtil>().SpawnObject();
         }
         
         public void LoadData(GameData gameData)
