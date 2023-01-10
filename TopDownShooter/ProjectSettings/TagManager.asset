@@ -42,6 +42,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: UI
+    uniqueID: 1425385663
+    locked: 0
   - name: Character
     uniqueID: 3738201285
+    locked: 0
+  - name: Bullets
+    uniqueID: 2790282369
     locked: 0
