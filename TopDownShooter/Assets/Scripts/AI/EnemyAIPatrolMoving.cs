@@ -11,6 +11,7 @@ namespace AI
 
         [SerializeField] private MovementDataSo movementDataSo;
         [SerializeField] private Transform gunTransform;
+        //[SerializeField] private Transform[] moveLocationTransforms;
         [SerializeField] private Transform pointATransform;
         [SerializeField] private Transform pointBTransform;
         
@@ -29,6 +30,32 @@ namespace AI
             {
                 _currentDestinationTransform = pointATransform;
             }
+
+            // for(int i = 0; i < moveLocationTransforms.Length; i++)
+            // {
+            //     if(transform.position == moveLocationTransforms[i].position)
+            //     {
+            //         if(i >= moveLocationTransforms.Length)
+            //         {
+            //             _currentDestinationTransform = moveLocationTransforms[moveLocationTransforms.Length - 1];    
+            //         }
+            //         else
+            //         {
+            //             _currentDestinationTransform = moveLocationTransforms[i + 1];   
+            //             //TODO Absolutely makes no sense why this is even executing so this is for later
+            //         }
+            //     }
+            //
+            //     if(_currentDestinationTransform == moveLocationTransforms[moveLocationTransforms.Length - 1])
+            //     {
+            //         Debug.Log("Final Destination Reached");
+            //
+            //         // for(int j = moveLocationTransforms.Length - 1; j > 0; j--)
+            //         // {
+            //         //     _currentDestinationTransform = moveLocationTransforms[j];
+            //         // }
+            //     }
+            // }
         }
 
         private void Patrol()
