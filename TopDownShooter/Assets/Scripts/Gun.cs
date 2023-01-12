@@ -1,6 +1,7 @@
 using Events;
 using ScriptableObjects;
 using UnityEngine;
+using Utils;
 
 public class Gun : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class Gun : MonoBehaviour
         {
             GameEventsManager.Invoke(GameEvent.Shoot , soundsDataSo.ShootClip);
             Instantiate(gunDataSo.BulletPrefab , barrelTransform.position , barrelTransform.rotation);
+            GetComponentInChildren<ObjectSpawnerUtil>().SpawnObject();
             _canShoot = false;
             _time = gunDataSo.ReloadTime;
 

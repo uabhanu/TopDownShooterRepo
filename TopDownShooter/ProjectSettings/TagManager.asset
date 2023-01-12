@@ -48,6 +48,9 @@ TagManager:
   - name: Character
     uniqueID: 3738201285
     locked: 0
+  - name: VFX
+    uniqueID: 3106350725
+    locked: 0
   - name: Bullets
     uniqueID: 2790282369
     locked: 0
