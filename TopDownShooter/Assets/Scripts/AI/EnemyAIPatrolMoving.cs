@@ -11,51 +11,44 @@ namespace AI
 
         [SerializeField] private MovementDataSo movementDataSo;
         [SerializeField] private Transform gunTransform;
-        //[SerializeField] private Transform[] moveLocationTransforms;
-        [SerializeField] private Transform pointATransform;
-        [SerializeField] private Transform pointBTransform;
-        
+        [SerializeField] private Transform[] moveLocationTransforms;
+
         #endregion
 
         #region Functions
 
         private void CalculateDestination()
         {
-            if(transform.position == pointATransform.position)
+            for(int i = 0; i < moveLocationTransforms.Length; i++)
             {
-                _currentDestinationTransform = pointBTransform;
-            }
-            
-            else if(transform.position == pointBTransform.position)
-            {
-                _currentDestinationTransform = pointATransform;
-            }
+                if(transform.position == moveLocationTransforms[i].position)
+                {
+                    if(i >= moveLocationTransforms.Length - 1)
+                    {
+                        _currentDestinationTransform = moveLocationTransforms[moveLocationTransforms.Length - 1];    
+                    }
+                    
+                    else if(i < moveLocationTransforms.Length - 1)
+                    {
+                        _currentDestinationTransform = moveLocationTransforms[i + 1];
+                    }
+                }
 
-            // for(int i = 0; i < moveLocationTransforms.Length; i++)
-            // {
-            //     if(transform.position == moveLocationTransforms[i].position)
-            //     {
-            //         if(i >= moveLocationTransforms.Length)
-            //         {
-            //             _currentDestinationTransform = moveLocationTransforms[moveLocationTransforms.Length - 1];    
-            //         }
-            //         else
-            //         {
-            //             _currentDestinationTransform = moveLocationTransforms[i + 1];   
-            //             //TODO Absolutely makes no sense why this is even executing so this is for later
-            //         }
-            //     }
-            //
-            //     if(_currentDestinationTransform == moveLocationTransforms[moveLocationTransforms.Length - 1])
-            //     {
-            //         Debug.Log("Final Destination Reached");
-            //
-            //         // for(int j = moveLocationTransforms.Length - 1; j > 0; j--)
-            //         // {
-            //         //     _currentDestinationTransform = moveLocationTransforms[j];
-            //         // }
-            //     }
-            // }
+                if(transform.position == moveLocationTransforms[moveLocationTransforms.Length - 1].position)
+                {
+                    for(int j = moveLocationTransforms.Length - 1; j > 0; j--)
+                    {
+                        if(j < 0)
+                        {
+                            _currentDestinationTransform = moveLocationTransforms[0];
+                        }
+                        else
+                        {
+                            _currentDestinationTransform = moveLocationTransforms[j - 1];
+                        }
+                    }
+                }
+            }
         }
 
         private void Patrol()
@@ -63,7 +56,7 @@ namespace AI
             transform.position = Vector2.MoveTowards(transform.position , _currentDestinationTransform.position , movementDataSo.MovementSpeed * Time.deltaTime);
         }
 
-        // private void Patrol(CharacterController characterController)
+        // private void Patrol(AIDetector aiDetector , CharacterController characterController)
         // {
         //     characterController.Mover.Move(_currentDestinationTransform.position - characterController.Mover.transform.position);
         // }
@@ -80,7 +73,7 @@ namespace AI
         public override void PerformAction(AIDetector aiDetector , CharacterController characterController)
         {
             CalculateDestination();
-            //Patrol(characterController);
+            //Patrol(aiDetector , characterController);
             Patrol();
             RotateTowardsDestination();
         }
