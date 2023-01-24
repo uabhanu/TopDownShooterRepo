@@ -34,15 +34,22 @@ namespace Utils
 
         private void OnTriggerEnter2D(Collider2D col2D)
         {
-            GameObject collidedObj = col2D.gameObject;
-            BulletDataSo collidedObjBulletData = collidedObj.GetComponent<Bullet>().BulletData;
-
-            if(_health > 0)
+            if(col2D.gameObject.CompareTag("Bullet"))
             {
-                _health -= collidedObjBulletData.Damage;
-                healthBarSlider.value = (float)_health / maxHealth;
+                GameObject bulletObj = col2D.gameObject;
+                
+                if(bulletObj != null)
+                {
+                    BulletDataSo collidedObjBulletData = bulletObj.GetComponent<Bullet>().BulletData;
+                
+                    if(_health > 0)
+                    {
+                        _health -= collidedObjBulletData.Damage;
+                        healthBarSlider.value = (float)_health / maxHealth;
+                    }
+                }
             }
-            
+
             if(_health <= 0)
             {
                 if(isEnemy)
